@@ -2,7 +2,7 @@
 local KeySystem = {
     ['Enabled'] = true,
     ['ValidKeys'] = {
-        ['fuckanigga'] = true,  -- Customer 5
+        ['123-ABC'] = true,  -- Customer 5
         -- Add your keys here
     },
 }
@@ -810,4 +810,5 @@ UserInputService.InputEnded:Connect(function(input, processed)
             triggerEnabled = false
         end
     end
+
 end)
