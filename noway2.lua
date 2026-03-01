@@ -89,6 +89,7 @@ outlinePart.Transparency = 0.85
 outlinePart.BrickColor = BrickColor.new("Grey")
 outlinePart.Material = Enum.Material.Neon
 outlinePart.Name = "FOVOutline3D"
+outlinePart.Size = Vector3.new(1, 1, 1) -- Default size
 outlinePart.Parent = Workspace
 
 local targetLine = Drawing.new("Line")
@@ -498,31 +499,46 @@ local function setupCharacterMonitor(player)
     end)
 end
 
--- HITBOX MANAGEMENT FUNCTIONS
+-- HITBOX MANAGEMENT FUNCTIONS - FIXED
 local function storeOriginalSize(part)
-    if not part or originalSizes[part] then return end
-    originalSizes[part] = part.Size
+    if not part then return end
+    -- Only store if we haven't already
+    if not originalSizes[part] then
+        originalSizes[part] = part.Size
+    end
 end
 
 local function restoreOriginalSize(part)
-    if part and originalSizes[part] then
-        part.Size = originalSizes[part]
+    if part and originalSizes[part] and part.Parent then
+        -- Only restore if it exists and is valid
+        pcall(function()
+            part.Size = originalSizes[part]
+        end)
     end
 end
 
 local function expandHitbox(part, size)
-    if not part then return end
+    if not part or not part.Parent then return end
     storeOriginalSize(part)
-    part.Size = Vector3.new(size, size, size)
+    -- Use pcall to prevent errors if part is destroyed
+    pcall(function()
+        part.Size = Vector3.new(size, size, size)
+    end)
 end
 
 local function resetAllHitboxes()
+    -- Use a separate table to avoid modification during iteration
+    local partsToReset = {}
     for part, originalSize in pairs(originalSizes) do
         if part and part.Parent then
-            part.Size = originalSize
+            table.insert(partsToReset, part)
         else
             originalSizes[part] = nil
         end
+    end
+    
+    for _, part in ipairs(partsToReset) do
+        restoreOriginalSize(part)
     end
 end
 
@@ -534,17 +550,10 @@ local function applyHitboxExpansion()
     
     local expandSize = Config['Hitbox Expander']['Size']
     
-    -- If we have a locked target
+    -- FIXED: Only apply to HumanoidRootParts to reduce lag
     if isLocking and currentTargetPlayer and currentTargetPlayer.Character then
-        -- First, reset all players' hitboxes to normal
-        for _, player in pairs(Players:GetPlayers()) do
-            if player ~= LocalPlayer and player.Character then
-                local hrp = player.Character:FindFirstChild("HumanoidRootPart")
-                if hrp then
-                    restoreOriginalSize(hrp)
-                end
-            end
-        end
+        -- Reset ALL hitboxes first (much faster than checking each)
+        resetAllHitboxes()
         
         -- Then ONLY expand the locked target's hitbox
         local targetHrp = currentTargetPlayer.Character:FindFirstChild("HumanoidRootPart")
@@ -552,7 +561,7 @@ local function applyHitboxExpansion()
             expandHitbox(targetHrp, expandSize)
         end
     else
-        -- No target locked - expand EVERYONE'S hitbox (default behavior)
+        -- No target locked - expand EVERYONE'S hitbox
         for _, player in pairs(Players:GetPlayers()) do
             if player ~= LocalPlayer and player.Character then
                 local hrp = player.Character:FindFirstChild("HumanoidRootPart")
@@ -564,40 +573,75 @@ local function applyHitboxExpansion()
     end
 end
 
--- Main loop
+-- FIXED: Speed function
+local function applySpeed()
+    if not SpeedEnabled or not Config['Speed']['Enabled'] then 
+        -- Reset speed if not enabled
+        local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid and humanoid.WalkSpeed ~= BaseSpeed then
+            humanoid.WalkSpeed = BaseSpeed
+        end
+        return 
+    end
+    
+    local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+    if humanoid then
+        humanoid.WalkSpeed = BaseSpeed * Config['Speed']['Multiplier']
+    end
+end
+
+-- Main loop - OPTIMIZED
 RunService.RenderStepped:Connect(function()
+    -- Check for knock states
     if isSelfKnocked() and isLocking then
         isLocking = false
         targetLine.Visible = false
     end
     
-    if currentTargetPlayer and currentTargetPlayer.Character then
-        if not currentTarget or not currentTarget.Parent then
-            updateTargetPart()
-        end
-    elseif currentTargetPlayer and not currentTargetPlayer.Character then
-        currentTarget = nil
-    end
-    
-    TriggerBot()
-    
-    -- Speed
-    if SpeedEnabled and Config['Speed']['Enabled'] then
-        local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid")
-        if humanoid then
-            humanoid.WalkSpeed = BaseSpeed * Config['Speed']['Multiplier']
+    -- Update target if needed (only when locking)
+    if isLocking then
+        if currentTargetPlayer and currentTargetPlayer.Character then
+            if not currentTarget or not currentTarget.Parent then
+                updateTargetPart()
+            end
+        elseif currentTargetPlayer and not currentTargetPlayer.Character then
+            currentTarget = nil
         end
     end
     
-    -- Hitbox Expander with the new rule:
-    -- Everyone expanded by default, only locked target stays expanded when locking
-    applyHitboxExpansion()
+    -- Trigger bot
+    if Config['Trigger Bot']['Enabled'] and triggerEnabled then
+        TriggerBot()
+    end
     
-    update3DFOVBox()
-    updateTargetLine()
-    refreshESP()
+    -- Speed (run every frame to ensure it stays applied)
+    applySpeed()
     
-    if Config['Camera Lock']['Enabled'] then
+    -- Hitbox Expander (run less frequently to reduce lag - every 5 frames)
+    if RunService:GetFrameCount() % 5 == 0 then
+        applyHitboxExpansion()
+    end
+    
+    -- Visual updates (only if enabled)
+    if Config['FOV']['Enabled'] then
+        update3DFOVBox()
+    end
+    
+    if Config['Target Line']['Enabled'] then
+        updateTargetLine()
+    end
+    
+    if Config['Visual Awareness']['Enabled'] then
+        refreshESP()
+    else
+        -- Hide ESP if disabled
+        for _, esp in pairs(espLabels) do
+            esp.nameTag.Visible = false
+        end
+    end
+    
+    -- Camera lock
+    if Config['Camera Lock']['Enabled'] and isLocking then
         applyCameraLock()
     end
 end)
@@ -660,7 +704,7 @@ UserInputService.InputBegan:Connect(function(input, processed)
     if input.KeyCode == Enum.KeyCode[Config['Keybinds']['Speed']] then
         SpeedEnabled = not SpeedEnabled
         if not SpeedEnabled then
-            local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid")
+            local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
             if humanoid then
                 humanoid.WalkSpeed = BaseSpeed
             end
@@ -694,6 +738,16 @@ UserInputService.InputEnded:Connect(function(input, processed)
             triggerEnabled = false
         end
     end
-
 end)
+
+-- Cleanup when script ends
+LocalPlayer.CharacterRemoving:Connect(function()
+    if isLocking then
+        isLocking = false
+        targetLine.Visible = false
+    end
+    SpeedEnabled = false
+    resetAllHitboxes()
+end)
+
 
