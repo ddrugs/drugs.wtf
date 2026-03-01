@@ -59,122 +59,6 @@ end
 print("✓ Glory Script loading...")
 -- ============= END KEY SYSTEM =============
 
-shared.Glory = {
-    ['Settings'] = {
-        ['Target Aim'] = true,
-        ['Knock Check'] = true,  -- When false, will target knocked players
-        ['Visible Check'] = true,
-        ['Self Knock Check'] = true,
-    },
-
-    ['Keybinds'] = {
-        ['Target Lock'] = {
-            ['Key'] = 'C',
-            ['Mode'] = 'Toggle', -- 'Toggle' or 'Hold'
-        },
-        ['Trigger Bot'] = {
-            ['Key'] = 'V',
-            ['Mode'] = 'Hold', -- 'Toggle' or 'Hold'
-        },
-        ['Speed'] = 'Z',
-        ['ESP'] = 'Y',
-    },
-
-    ['FOV'] = {
-        ['Enabled'] = false,
-        ['Visible'] = true,
-        ['Thickness'] = 4,
-        ['Active Color'] = Color3.fromRGB(0, 17, 255),
-        ['Size'] = 10,
-    },
-
-    ['Target Line'] = {
-        ['Enabled'] = true,
-        ['Thickness'] = 2.2,
-        ['Transparency'] = 0.8,
-        ['Vulnerable'] = Color3.fromRGB(255, 85, 127),
-        ['Invulnerable'] = Color3.fromRGB(150, 150, 150),
-    },
-
-    ['Silent Aim'] = {
-        ['Enabled'] = true,
-        ['Hit Part'] = 'UpperTorso',
-        ['Preferred Part'] = 'UpperTorso',
-        ['Fallback Part'] = 'UpperTorso',
-        ['Use Prediction'] = true,
-        ['Prediction'] = {
-            ['X'] = 0,
-            ['Y'] = 0,
-            ['Z'] = 0.046,
-        },
-    },
-
-    ['Camera Lock'] = {
-        ['Enabled'] = false,
-        ['Hit Part'] = 'Head',
-        ['Smoothing'] = {
-            ['X'] = 40,
-            ['Y'] = 40,
-            ['Z'] = 40,
-        },
-        ['Use Prediction'] = true,
-        ['Prediction'] = {
-            ['X'] = 0.133,
-            ['Y'] = 0.133,
-            ['Z'] = 0.133,
-        },
-    },
-
-    ['Trigger Bot'] = {
-        ['Enabled'] = true,
-        ['Delay'] = 0.01,
-        ['Require Target'] = false,
-        ['Specific Weapons'] = {
-            ['Enabled'] = false,
-            ['Weapons'] = {
-                '[Double-Barrel SG]',
-                '[Revolver]',
-                '[TacticalShotgun]',
-            },
-        },
-    },
-
-    ['Spread'] = {
-        ['Enabled'] = true,
-        ['Amount'] = 1,
-        ['Specific Weapons'] = {
-            ['Enabled'] = false,
-            ['Weapons'] = {
-                '[Double-Barrel SG]',
-                '[TacticalShotgun]',
-            },
-        },
-    },
-
-    ['Speed'] = {
-        ['Enabled'] = true,
-        ['Multiplier'] = 35,
-        ['Anti Fling'] = false,
-    },
-
-    ['Hitbox Expander'] = {
-        ['Enabled'] = true,
-        ['Size'] = 13,
-    },
-
-    ['Spiderman'] = {
-        ['Enabled'] = false,
-    },
-
-    ['Visual Awareness'] = {
-        ['Enabled'] = true,
-        ['Color'] = Color3.fromRGB(255, 255, 255),
-        ['Target Color'] = Color3.fromRGB(255, 0, 0),
-        ['Use Display Name'] = false,
-        ['Name Above'] = false,
-    },
-}
-
 local Config = shared.Glory
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -811,5 +695,6 @@ UserInputService.InputEnded:Connect(function(input, processed)
         end
     end
 end)
+
 
 
