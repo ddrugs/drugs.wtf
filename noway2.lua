@@ -60,21 +60,36 @@ local lastTriggerClick = 0
 -- Store original hitbox sizes
 local originalSizes = {}
 
--- Body parts priority for aiming (head is highest priority)
-local BODY_PARTS = {
-    "Head",
-    "UpperTorso",
-    "HumanoidRootPart",
-    "LowerTorso",
-    "LeftUpperArm",
-    "RightUpperArm",
-    "LeftLowerArm",
-    "RightLowerArm",
-    "LeftUpperLeg",
-    "RightUpperLeg",
-    "LeftLowerLeg",
-    "RightLowerLeg"
-}
+-- Body parts priority based on config
+local function getBodyPartsPriority()
+    local parts = {}
+    
+    -- Add preferred part first
+    if Config['Silent Aim']['Preferred Part'] then
+        table.insert(parts, Config['Silent Aim']['Preferred Part'])
+    end
+    
+    -- Add hit part
+    if Config['Silent Aim']['Hit Part'] then
+        table.insert(parts, Config['Silent Aim']['Hit Part'])
+    end
+    
+    -- Add fallback part
+    if Config['Silent Aim']['Fallback Part'] then
+        table.insert(parts, Config['Silent Aim']['Fallback Part'])
+    end
+    
+    -- Add default body parts as fallbacks
+    local defaultParts = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftUpperArm", "RightUpperArm", "LeftLowerArm", "RightLowerArm", "LeftUpperLeg", "RightUpperLeg"}
+    
+    for _, part in ipairs(defaultParts) do
+        if not table.find(parts, part) then
+            table.insert(parts, part)
+        end
+    end
+    
+    return parts
+end
 
 -- Visual elements
 local outlinePart = Instance.new("Part")
@@ -142,12 +157,14 @@ local function canSeeTarget(part)
     return rayResult == nil or rayResult.Instance:IsDescendantOf(character)
 end
 
--- Improved function to get target body part with priority
+-- Improved function to get target body part with priority from config
 local function getBestTargetPart(character)
     if not character then return nil end
     
-    -- Try to get body parts in order of priority
-    for _, partName in ipairs(BODY_PARTS) do
+    local bodyParts = getBodyPartsPriority()
+    
+    -- Try to get body parts in order of priority from config
+    for _, partName in ipairs(bodyParts) do
         local part = character:FindFirstChild(partName)
         if part and part:IsA("BasePart") then
             return part
@@ -218,17 +235,19 @@ local function getPredictedPosition(part, config)
     local velocity = part.AssemblyLinearVelocity
     local prediction = config['Prediction']
     
-    local predValue
+    local predX, predY, predZ
     if type(prediction) == "table" then
-        predValue = prediction['X'] or prediction['Y'] or prediction['Z'] or 0.133
+        predX = prediction['X'] or 0
+        predY = prediction['Y'] or 0
+        predZ = prediction['Z'] or 0
     else
-        predValue = (prediction == 0) and 0.133 or prediction
+        predX, predY, predZ = prediction, prediction, prediction
     end
     
     return part.Position + Vector3.new(
-        velocity.X * predValue, 
-        velocity.Y * predValue, 
-        velocity.Z * predValue
+        velocity.X * predX, 
+        velocity.Y * predY, 
+        velocity.Z * predZ
     )
 end
 
@@ -271,6 +290,7 @@ local function update3DFOVBox()
             outlinePart.Size = rootPart.Size + Vector3.new(offset, offset, offset)
             outlinePart.CFrame = rootPart.CFrame
             outlinePart.Transparency = 0.85
+            outlinePart.BrickColor = BrickColor.new(Color3.fromRGB(0, 17, 255)) -- FOV color
         else
             outlinePart.Transparency = 1
         end
@@ -327,6 +347,27 @@ local function TriggerBot()
         if not currentTarget or not canSeeTarget(currentTarget) then return end
     end
     
+    -- Check specific weapons if enabled
+    if Config['Trigger Bot']['Specific Weapons']['Enabled'] then
+        local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        if tool then
+            local weaponName = tool.Name
+            local weaponsList = Config['Trigger Bot']['Specific Weapons']['Weapons']
+            local weaponFound = false
+            
+            for _, weapon in ipairs(weaponsList) do
+                if weaponName == weapon then
+                    weaponFound = true
+                    break
+                end
+            end
+            
+            if not weaponFound then return end
+        else
+            return
+        end
+    end
+    
     local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
     if tool then
         tool:Activate()
@@ -334,13 +375,13 @@ local function TriggerBot()
     end
 end
 
--- Improved Silent Aim with weapon type detection
+-- Weapon type detection
 local function isShotgun(tool)
     if not tool then return false end
     
     local toolName = tool.Name:lower()
     -- Common shotgun names in Da Hood
-    local shotgunNames = {"shotgun", "db", "doublebarrel", "remington", "spas"}
+    local shotgunNames = {"shotgun", "db", "doublebarrel", "remington", "spas", "tactical"}
     
     for _, name in ipairs(shotgunNames) do
         if toolName:find(name) then
@@ -348,29 +389,19 @@ local function isShotgun(tool)
         end
     end
     
-    -- Check for shotgun-specific traits
-    local handle = tool:FindFirstChild("Handle")
-    if handle then
-        -- Some shotguns might have specific attributes
-        if handle:FindFirstChild("ShotgunPellet") or handle:FindFirstChild("Spread") then
-            return true
-        end
-    end
-    
     return false
 end
 
--- Silent Aim
+-- Silent Aim with weapon-specific handling
 local grm = getrawmetatable(game)
 local oldIndex = grm.__index
 local oldNamecall = grm.__namecall
 setreadonly(grm, false)
 
--- Override __index for Mouse.Hit
+-- Override __index for Mouse properties
 grm.__index = function(self, key)
-    if not checkcaller() and self == Mouse then
-        -- For Mouse.Hit (silent aim)
-        if key == "Hit" and Config['Silent Aim']['Enabled'] then
+    if not checkcaller() and self == Mouse and Config['Silent Aim']['Enabled'] then
+        if key == "Hit" then
             if currentTargetPlayer and currentTargetPlayer.Character then
                 updateTargetPart()
                 
@@ -381,11 +412,16 @@ grm.__index = function(self, key)
                     
                     local predictedPos = getPredictedPosition(currentTarget, Config['Silent Aim'])
                     
-                    -- Check current tool to adjust aim position
+                    -- Check current tool for special handling
                     local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
                     if isShotgun(tool) then
-                        -- For shotguns, aim slightly higher to prevent floor aiming
-                        predictedPos = predictedPos + Vector3.new(0, 1.5, 0)
+                        -- For shotguns, aim at UpperTorso specifically
+                        local upperTorso = currentTargetPlayer.Character:FindFirstChild("UpperTorso")
+                        if upperTorso then
+                            predictedPos = getPredictedPosition(upperTorso, Config['Silent Aim'])
+                        end
+                        -- Add slight upward adjustment for shotguns to prevent floor aiming
+                        predictedPos = predictedPos + Vector3.new(0, 1.2, 0)
                     end
                     
                     return CFrame.new(predictedPos)
@@ -393,17 +429,11 @@ grm.__index = function(self, key)
             end
             
             return oldIndex(self, key)
-        end
-        
-        -- For Mouse.Target (optional, helps with raycast weapons)
-        if key == "Target" and Config['Silent Aim']['Enabled'] then
+        elseif key == "Target" then
             if currentTarget then
                 return currentTarget
             end
-        end
-        
-        -- For Mouse.UnitRay (used by some weapons)
-        if key == "UnitRay" and Config['Silent Aim']['Enabled'] then
+        elseif key == "UnitRay" then
             if currentTarget then
                 local direction = (currentTarget.Position - Camera.CFrame.Position).Unit
                 return Ray.new(Camera.CFrame.Position, direction)
@@ -413,20 +443,49 @@ grm.__index = function(self, key)
     return oldIndex(self, key)
 end
 
--- Override __namecall for FindPartOnRay (used by many weapons)
+-- Override __namecall for raycast methods (important for shotguns)
 grm.__namecall = function(self, ...)
     local method = getnamecallmethod()
     local args = {...}
     
     if not checkcaller() and Config['Silent Aim']['Enabled'] and currentTarget then
-        -- Handle raycast methods
+        -- Handle FindPartOnRay methods (used by many weapons including shotguns)
         if method == "FindPartOnRay" or method == "FindPartOnRayWithIgnoreList" or method == "FindPartOnRayWithWhitelist" then
             local ray = self
-            if type(ray) == "userdata" and tostring(ray):match("Ray") then
-                -- Create a new ray pointing at the target
-                local direction = (currentTarget.Position - ray.Origin).Unit * 1000
-                local newRay = Ray.new(ray.Origin, direction)
-                return oldNamecall(unpack({newRay, table.unpack(args, 2)}))
+            if typeof(ray) == "Ray" then
+                -- Check if this is a shotgun
+                local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+                if isShotgun(tool) then
+                    -- For shotguns, aim at UpperTorso
+                    local upperTorso = currentTargetPlayer.Character and currentTargetPlayer.Character:FindFirstChild("UpperTorso")
+                    if upperTorso then
+                        local targetPos = upperTorso.Position + Vector3.new(0, 1.2, 0)
+                        local direction = (targetPos - ray.Origin).Unit * 1000
+                        local newRay = Ray.new(ray.Origin, direction)
+                        
+                        -- Call the original with modified ray
+                        if method == "FindPartOnRay" then
+                            return oldNamecall(newRay)
+                        elseif method == "FindPartOnRayWithIgnoreList" then
+                            return oldNamecall(newRay, args[2])
+                        elseif method == "FindPartOnRayWithWhitelist" then
+                            return oldNamecall(newRay, args[2])
+                        end
+                    end
+                else
+                    -- For other weapons, use standard aim
+                    local targetPos = currentTarget.Position
+                    local direction = (targetPos - ray.Origin).Unit * 1000
+                    local newRay = Ray.new(ray.Origin, direction)
+                    
+                    if method == "FindPartOnRay" then
+                        return oldNamecall(newRay)
+                    elseif method == "FindPartOnRayWithIgnoreList" then
+                        return oldNamecall(newRay, args[2])
+                    elseif method == "FindPartOnRayWithWhitelist" then
+                        return oldNamecall(newRay, args[2])
+                    end
+                end
             end
         end
     end
@@ -436,14 +495,35 @@ end
 
 setreadonly(grm, true)
 
--- Spread control
+-- Spread control with weapon-specific handling
 local oldRandom
 oldRandom = hookfunction(math.random, function(...)
     local args = {...}
     if checkcaller() then return oldRandom(...) end
     
-    if (#args == 0) or (args[1] == -0.05 and args[2] == 0.05) or (args[1] == -0.1) or (args[1] == -0.05) then
-        if Config['Spread']['Enabled'] then
+    -- Check if spread is enabled for specific weapons
+    if Config['Spread']['Enabled'] then
+        if Config['Spread']['Specific Weapons']['Enabled'] then
+            local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+            if tool then
+                local weaponName = tool.Name
+                local weaponsList = Config['Spread']['Specific Weapons']['Weapons']
+                local weaponFound = false
+                
+                for _, weapon in ipairs(weaponsList) do
+                    if weaponName == weapon then
+                        weaponFound = true
+                        break
+                    end
+                end
+                
+                if not weaponFound then
+                    return oldRandom(...)
+                end
+            end
+        end
+        
+        if (#args == 0) or (args[1] == -0.05 and args[2] == 0.05) or (args[1] == -0.1) or (args[1] == -0.05) then
             return oldRandom(...) * (Config['Spread']['Amount'] / 100)
         end
     end
@@ -451,7 +531,7 @@ oldRandom = hookfunction(math.random, function(...)
     return oldRandom(...)
 end)
 
--- ESP Functions (rest remains the same as original)
+-- ESP Functions
 local function addESPToPlayer(player)
     if player == LocalPlayer then return end
     
@@ -600,11 +680,10 @@ local function applyHitboxExpansion()
     
     local expandSize = Config['Hitbox Expander']['Size']
     
-    -- If we have a locked target
     if isLocking and currentTargetPlayer and currentTargetPlayer.Character then
-        -- First, reset all players' hitboxes to normal
+        -- Reset all other players
         for _, player in pairs(Players:GetPlayers()) do
-            if player ~= LocalPlayer and player.Character then
+            if player ~= LocalPlayer and player.Character and player ~= currentTargetPlayer then
                 local hrp = player.Character:FindFirstChild("HumanoidRootPart")
                 if hrp then
                     restoreOriginalSize(hrp)
@@ -612,13 +691,13 @@ local function applyHitboxExpansion()
             end
         end
         
-        -- Then ONLY expand the locked target's hitbox
+        -- Expand only locked target
         local targetHrp = currentTargetPlayer.Character:FindFirstChild("HumanoidRootPart")
         if targetHrp then
             expandHitbox(targetHrp, expandSize)
         end
     else
-        -- No target locked - expand EVERYONE'S hitbox (default behavior)
+        -- Expand everyone
         for _, player in pairs(Players:GetPlayers()) do
             if player ~= LocalPlayer and player.Character then
                 local hrp = player.Character:FindFirstChild("HumanoidRootPart")
@@ -647,17 +726,19 @@ RunService.RenderStepped:Connect(function()
     
     TriggerBot()
     
-    -- Speed
+    -- Speed with anti fling
     if SpeedEnabled and Config['Speed']['Enabled'] then
         local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid")
         if humanoid then
             humanoid.WalkSpeed = BaseSpeed * Config['Speed']['Multiplier']
+            
+            if Config['Speed']['Anti Fling'] then
+                -- Anti-fling code would go here
+            end
         end
     end
     
-    -- Hitbox Expander
     applyHitboxExpansion()
-    
     update3DFOVBox()
     updateTargetLine()
     refreshESP()
@@ -760,7 +841,3 @@ UserInputService.InputEnded:Connect(function(input, processed)
         end
     end
 end)
-
-
-
-
