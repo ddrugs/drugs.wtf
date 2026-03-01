@@ -60,6 +60,12 @@ local lastTriggerClick = 0
 -- Store original hitbox sizes
 local originalSizes = {}
 
+-- Shotgun names exactly as they appear in game
+local SHOTGUN_NAMES = {
+    ["Double-Barrel SG"] = true,
+    ["TacticalShotgun"] = true
+}
+
 -- Body parts priority based on config
 local function getBodyPartsPriority()
     local parts = {}
@@ -157,7 +163,44 @@ local function canSeeTarget(part)
     return rayResult == nil or rayResult.Instance:IsDescendantOf(character)
 end
 
--- Improved function to get target body part with priority from config
+-- Function to check if current tool is a shotgun
+local function isShotgun()
+    local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+    if not tool then return false end
+    
+    return SHOTGUN_NAMES[tool.Name] == true
+end
+
+-- Function to get the best target position based on weapon type
+local function getTargetPosition()
+    if not currentTargetPlayer or not currentTargetPlayer.Character then
+        return nil
+    end
+    
+    if isShotgun() then
+        -- For shotguns, aim at UpperTorso and add height to prevent floor shots
+        local upperTorso = currentTargetPlayer.Character:FindFirstChild("UpperTorso")
+        if upperTorso then
+            -- Add 1.5 studs height to ensure shots hit body, not floor
+            return upperTorso.Position + Vector3.new(0, 1.5, 0)
+        end
+        
+        -- Fallback to HumanoidRootPart if UpperTorso not found
+        local hrp = currentTargetPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if hrp then
+            return hrp.Position + Vector3.new(0, 1.5, 0)
+        end
+    else
+        -- For other weapons, use the preferred body part
+        updateTargetPart()
+        if currentTarget then
+            return getPredictedPosition(currentTarget, Config['Silent Aim'])
+        end
+    end
+    
+    return nil
+end
+
 local function getBestTargetPart(character)
     if not character then return nil end
     
@@ -290,7 +333,7 @@ local function update3DFOVBox()
             outlinePart.Size = rootPart.Size + Vector3.new(offset, offset, offset)
             outlinePart.CFrame = rootPart.CFrame
             outlinePart.Transparency = 0.85
-            outlinePart.BrickColor = BrickColor.new(Color3.fromRGB(0, 17, 255)) -- FOV color
+            outlinePart.BrickColor = BrickColor.new(Color3.fromRGB(0, 17, 255))
         else
             outlinePart.Transparency = 1
         end
@@ -375,23 +418,6 @@ local function TriggerBot()
     end
 end
 
--- Weapon type detection
-local function isShotgun(tool)
-    if not tool then return false end
-    
-    local toolName = tool.Name:lower()
-    -- Common shotgun names in Da Hood
-    local shotgunNames = {"shotgun", "db", "doublebarrel", "remington", "spas", "tactical"}
-    
-    for _, name in ipairs(shotgunNames) do
-        if toolName:find(name) then
-            return true
-        end
-    end
-    
-    return false
-end
-
 -- Silent Aim with weapon-specific handling
 local grm = getrawmetatable(game)
 local oldIndex = grm.__index
@@ -403,39 +429,35 @@ grm.__index = function(self, key)
     if not checkcaller() and self == Mouse and Config['Silent Aim']['Enabled'] then
         if key == "Hit" then
             if currentTargetPlayer and currentTargetPlayer.Character then
-                updateTargetPart()
-                
-                if currentTarget then
-                    if Config['Settings']['Visible Check'] and not canSeeTarget(currentTarget) then
-                        return oldIndex(self, key)
-                    end
-                    
-                    local predictedPos = getPredictedPosition(currentTarget, Config['Silent Aim'])
-                    
-                    -- Check current tool for special handling
-                    local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
-                    if isShotgun(tool) then
-                        -- For shotguns, aim at UpperTorso specifically
-                        local upperTorso = currentTargetPlayer.Character:FindFirstChild("UpperTorso")
-                        if upperTorso then
-                            predictedPos = getPredictedPosition(upperTorso, Config['Silent Aim'])
+                local targetPos = getTargetPosition()
+                if targetPos then
+                    if Config['Settings']['Visible Check'] then
+                        -- Check if we can see the target
+                        local checkPart = isShotgun() and 
+                            currentTargetPlayer.Character:FindFirstChild("UpperTorso") or 
+                            currentTarget
+                        
+                        if checkPart and not canSeeTarget(checkPart) then
+                            return oldIndex(self, key)
                         end
-                        -- Add slight upward adjustment for shotguns to prevent floor aiming
-                        predictedPos = predictedPos + Vector3.new(0, 1.2, 0)
                     end
                     
-                    return CFrame.new(predictedPos)
+                    return CFrame.new(targetPos)
                 end
             end
             
             return oldIndex(self, key)
         elseif key == "Target" then
-            if currentTarget then
+            if isShotgun() and currentTargetPlayer and currentTargetPlayer.Character then
+                -- For shotguns, return UpperTorso as target
+                return currentTargetPlayer.Character:FindFirstChild("UpperTorso") or currentTarget
+            elseif currentTarget then
                 return currentTarget
             end
         elseif key == "UnitRay" then
-            if currentTarget then
-                local direction = (currentTarget.Position - Camera.CFrame.Position).Unit
+            local targetPos = getTargetPosition()
+            if targetPos then
+                local direction = (targetPos - Camera.CFrame.Position).Unit
                 return Ray.new(Camera.CFrame.Position, direction)
             end
         end
@@ -443,41 +465,23 @@ grm.__index = function(self, key)
     return oldIndex(self, key)
 end
 
--- Override __namecall for raycast methods (important for shotguns)
+-- Override __namecall for raycast methods (critical for shotguns)
 grm.__namecall = function(self, ...)
     local method = getnamecallmethod()
     local args = {...}
     
-    if not checkcaller() and Config['Silent Aim']['Enabled'] and currentTarget then
-        -- Handle FindPartOnRay methods (used by many weapons including shotguns)
+    if not checkcaller() and Config['Silent Aim']['Enabled'] and currentTargetPlayer then
+        -- Handle FindPartOnRay methods (used by shotguns)
         if method == "FindPartOnRay" or method == "FindPartOnRayWithIgnoreList" or method == "FindPartOnRayWithWhitelist" then
             local ray = self
             if typeof(ray) == "Ray" then
-                -- Check if this is a shotgun
-                local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
-                if isShotgun(tool) then
-                    -- For shotguns, aim at UpperTorso
-                    local upperTorso = currentTargetPlayer.Character and currentTargetPlayer.Character:FindFirstChild("UpperTorso")
-                    if upperTorso then
-                        local targetPos = upperTorso.Position + Vector3.new(0, 1.2, 0)
-                        local direction = (targetPos - ray.Origin).Unit * 1000
-                        local newRay = Ray.new(ray.Origin, direction)
-                        
-                        -- Call the original with modified ray
-                        if method == "FindPartOnRay" then
-                            return oldNamecall(newRay)
-                        elseif method == "FindPartOnRayWithIgnoreList" then
-                            return oldNamecall(newRay, args[2])
-                        elseif method == "FindPartOnRayWithWhitelist" then
-                            return oldNamecall(newRay, args[2])
-                        end
-                    end
-                else
-                    -- For other weapons, use standard aim
-                    local targetPos = currentTarget.Position
+                local targetPos = getTargetPosition()
+                if targetPos then
+                    -- Create new ray pointing at target with slight upward adjustment for shotguns
                     local direction = (targetPos - ray.Origin).Unit * 1000
                     local newRay = Ray.new(ray.Origin, direction)
                     
+                    -- Call the original with modified ray
                     if method == "FindPartOnRay" then
                         return oldNamecall(newRay)
                     elseif method == "FindPartOnRayWithIgnoreList" then
@@ -485,6 +489,21 @@ grm.__namecall = function(self, ...)
                     elseif method == "FindPartOnRayWithWhitelist" then
                         return oldNamecall(newRay, args[2])
                     end
+                end
+            end
+        end
+        
+        -- Handle WorldRoot:Raycast (newer method)
+        if method == "Raycast" then
+            local origin = args[1]
+            local direction = args[2]
+            
+            if typeof(origin) == "Vector3" and typeof(direction) == "Vector3" then
+                local targetPos = getTargetPosition()
+                if targetPos then
+                    local newDirection = (targetPos - origin).Unit * direction.Magnitude
+                    args[2] = newDirection
+                    return oldNamecall(self, unpack(args))
                 end
             end
         end
@@ -731,10 +750,6 @@ RunService.RenderStepped:Connect(function()
         local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid")
         if humanoid then
             humanoid.WalkSpeed = BaseSpeed * Config['Speed']['Multiplier']
-            
-            if Config['Speed']['Anti Fling'] then
-                -- Anti-fling code would go here
-            end
         end
     end
     
@@ -841,3 +856,4 @@ UserInputService.InputEnded:Connect(function(input, processed)
         end
     end
 end)
+
