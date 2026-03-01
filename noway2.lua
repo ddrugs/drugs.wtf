@@ -694,4 +694,6 @@ UserInputService.InputEnded:Connect(function(input, processed)
             triggerEnabled = false
         end
     end
+
 end)
+
