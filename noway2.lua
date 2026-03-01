@@ -7,45 +7,24 @@ local KeySystem = {
     },
 }
 
--- Simple console-based key verification
+-- Simple key verification
 local function checkKey()
     if not KeySystem.Enabled then return true end
     
-    print("=== GLORY SCRIPT - KEY REQUIRED ===")
-    print("Please enter your key:")
-    
-    local success, key = pcall(function()
-        return syn and syn.request and syn.request({
-            Url = "http://httpbin.org/get",  -- Dummy request to pause
-            Method = "GET"
-        })
-    end)
-    
-    -- Simpler approach: check if key exists in script args
-    local args = {...}  -- Get script arguments
-    
-    -- Method 1: Check if key is in the script's arguments (for injectors that support it)
-    for i, arg in ipairs(args) do
-        if KeySystem.ValidKeys[tostring(arg)] then
-            print("✓ Key accepted!")
-            return true
-        end
-    end
-    
-    -- Method 2: Check for global variable set by user
-    if _G.ENTERED_KEY and KeySystem.ValidKeys[_G.ENTERED_KEY] then
-        print("✓ Key accepted!")
-        return true
-    end
-    
-    -- Method 3: Check a specific global variable name
+    -- Check for global variable set by user
     if _G.GLORY_KEY and KeySystem.ValidKeys[_G.GLORY_KEY] then
         print("✓ Key accepted!")
         return true
     end
     
+    -- Also check ENTERED_KEY as fallback
+    if _G.ENTERED_KEY and KeySystem.ValidKeys[_G.ENTERED_KEY] then
+        print("✓ Key accepted!")
+        return true
+    end
+    
     print("✗ Invalid or missing key!")
-    print("Valid keys: " .. table.concat(table.getkeys(KeySystem.ValidKeys), ", "))
+    print("Usage: _G.GLORY_KEY = 'YOUR-KEY-HERE' before loading")
     return false
 end
 
@@ -812,3 +791,4 @@ UserInputService.InputEnded:Connect(function(input, processed)
     end
 
 end)
+
