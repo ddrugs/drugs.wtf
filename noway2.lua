@@ -2,7 +2,7 @@
 local KeySystem = {
     ['Enabled'] = true,
     ['ValidKeys'] = {
-        ['9X7K-2M4P-8R6T-1W3Z-5Y7A-9B2C'] = true,  -- Customer 5
+        ['ABC-123'] = true,  -- Customer 5
         -- Add your keys here
     },
 }
@@ -70,16 +70,13 @@ local Mouse = LocalPlayer:GetMouse()
 
 -- Variables
 local currentTarget = nil
-local currentTargetPlayer = nil
+local currentTargetPlayer = nil  -- Store the player instead of just the part
 local isLocking = false
 local triggerEnabled = false
 local espLabels = {}
 local SpeedEnabled = false
 local BaseSpeed = 16
 local lastTriggerClick = 0
-
--- Store original hitbox sizes
-local originalSizes = {}
 
 -- Visual elements
 local outlinePart = Instance.new("Part")
@@ -89,7 +86,6 @@ outlinePart.Transparency = 0.85
 outlinePart.BrickColor = BrickColor.new("Grey")
 outlinePart.Material = Enum.Material.Neon
 outlinePart.Name = "FOVOutline3D"
-outlinePart.Size = Vector3.new(1, 1, 1) -- Default size
 outlinePart.Parent = Workspace
 
 local targetLine = Drawing.new("Line")
@@ -100,7 +96,7 @@ targetLine.ZIndex = 999
 
 -- Helper Functions
 local function isPlayerKnockedOrKO(player)
-    if not Config['Settings']['Knock Check'] then return false end
+    if not Config['Settings']['Knock Check'] then return false end  -- When false, we ignore knock state
     
     if player and player.Character then
         local bodyEffects = player.Character:FindFirstChild("BodyEffects")
@@ -148,9 +144,11 @@ local function canSeeTarget(part)
     return rayResult == nil or rayResult.Instance:IsDescendantOf(character)
 end
 
+-- CRITICAL: Get the best available part from a character
 local function getBestTargetPart(character)
     if not character then return nil end
     
+    -- Priority order: Head -> UpperTorso -> HumanoidRootPart -> LowerTorso -> Any body part
     local head = character:FindFirstChild("Head")
     if head then return head end
     
@@ -163,6 +161,7 @@ local function getBestTargetPart(character)
     local lowerTorso = character:FindFirstChild("LowerTorso")
     if lowerTorso then return lowerTorso end
     
+    -- If no standard parts, try to find any body part
     for _, part in pairs(character:GetChildren()) do
         if part:IsA("BasePart") and part.Name ~= "Handle" then
             return part
@@ -172,6 +171,7 @@ local function getBestTargetPart(character)
     return nil
 end
 
+-- Update current target part based on stored player
 local function updateTargetPart()
     if not currentTargetPlayer or not currentTargetPlayer.Character then
         return false
@@ -186,6 +186,7 @@ local function updateTargetPart()
     return false
 end
 
+-- Find closest target player for LOCKING ONLY (returns player, not part)
 local function findClosestTargetPlayerForLock()
     local closestPlayer = nil
     local closestPart = nil
@@ -194,6 +195,7 @@ local function findClosestTargetPlayerForLock()
     
     for _, player in pairs(Players:GetPlayers()) do
         if player ~= LocalPlayer and player.Character then
+            -- Check knock state based on settings
             if not isPlayerKnockedOrKO(player) then
                 local targetPart = getBestTargetPart(player.Character)
                 
@@ -220,6 +222,7 @@ local function findClosestTargetPlayerForLock()
     return nil
 end
 
+-- Get predicted position
 local function getPredictedPosition(part, config)
     if not config['Use Prediction'] or not part then return part and part.Position or Vector3.new() end
     
@@ -240,6 +243,7 @@ local function getPredictedPosition(part, config)
     )
 end
 
+-- Camera lock logic
 local function applyCameraLock()
     if not isLocking then return end
     if isSelfKnocked() then
@@ -248,9 +252,10 @@ local function applyCameraLock()
         return
     end
     
+    -- Update target part if needed
     if not currentTarget or not currentTarget.Parent then
         if not updateTargetPart() then
-            return
+            return  -- Don't try to find new target, just wait
         end
     end
     
@@ -260,12 +265,14 @@ local function applyCameraLock()
     local cameraCFrame = Camera.CFrame
     local targetCFrame = CFrame.new(cameraCFrame.Position, targetPos)
     
+    -- Smoothing
     local smoothConfig = Config['Camera Lock']['Smoothing']
     local alpha = 1 / ((smoothConfig['X'] + smoothConfig['Y'] + smoothConfig['Z']) / 3)
     
     Camera.CFrame = cameraCFrame:Lerp(targetCFrame, alpha)
 end
 
+-- FOV Box update
 local function update3DFOVBox()
     if not Config['FOV']['Enabled'] or not Config['FOV']['Visible'] then
         outlinePart.Transparency = 1
@@ -287,6 +294,7 @@ local function update3DFOVBox()
     end
 end
 
+-- Target line update
 local function updateTargetLine()
     if not Config['Target Line']['Enabled'] or not currentTargetPlayer or not currentTargetPlayer.Character or not isLocking then
         targetLine.Visible = false
@@ -309,6 +317,7 @@ local function updateTargetLine()
         targetLine.Thickness = Config['Target Line']['Thickness']
         targetLine.Transparency = Config['Target Line']['Transparency']
         
+        -- Update target part for visibility check
         updateTargetPart()
         
         if currentTarget and canSeeTarget(currentTarget) then
@@ -323,6 +332,7 @@ local function updateTargetLine()
     end
 end
 
+-- Trigger bot
 local function TriggerBot()
     if not Config['Trigger Bot']['Enabled'] or not triggerEnabled then return end
     if tick() - lastTriggerClick < Config['Trigger Bot']['Delay'] then return end
@@ -330,6 +340,7 @@ local function TriggerBot()
     if Config['Trigger Bot']['Require Target'] and not currentTargetPlayer then return end
     
     if currentTargetPlayer and currentTargetPlayer.Character then
+        -- Update target part
         updateTargetPart()
         
         if not currentTarget or not canSeeTarget(currentTarget) then return end
@@ -342,7 +353,7 @@ local function TriggerBot()
     end
 end
 
--- Silent Aim
+-- SILENT AIM - ONLY target the locked player, NEVER auto-aim at others
 local grm = getrawmetatable(game)
 local oldIndex = grm.__index
 setreadonly(grm, false)
@@ -350,19 +361,24 @@ setreadonly(grm, false)
 grm.__index = function(self, key)
     if not checkcaller() and self == Mouse and Config['Silent Aim']['Enabled'] then
         if key == "Hit" then
+            -- ONLY aim if we have a locked target player
             if currentTargetPlayer and currentTargetPlayer.Character then
+                -- Update the target part to ensure we have the latest
                 updateTargetPart()
                 
+                -- Check if we have a valid target part and it's visible (if visibility check is enabled)
                 if currentTarget then
                     if Config['Settings']['Visible Check'] and not canSeeTarget(currentTarget) then
-                        return oldIndex(self, key)
+                        return oldIndex(self, key)  -- Can't see target, return normal hit
                     end
                     
+                    -- Return aimed position
                     local predictedPos = getPredictedPosition(currentTarget, Config['Silent Aim'])
                     return CFrame.new(predictedPos)
                 end
             end
             
+            -- No locked target or invalid target, return normal hit (don't aim at anyone else)
             return oldIndex(self, key)
         end
     end
@@ -485,12 +501,16 @@ Players.PlayerRemoving:Connect(function(player)
     removeESPFromPlayer(player)
 end)
 
+-- Monitor character changes for target player
 local function setupCharacterMonitor(player)
     if player ~= currentTargetPlayer then return end
     
+    -- When character respawns, automatically update target
     player.CharacterAdded:Connect(function(character)
         if player == currentTargetPlayer then
+            -- Wait for character to load
             task.wait(0.5)
+            -- Update target part
             local newPart = getBestTargetPart(character)
             if newPart then
                 currentTarget = newPart
@@ -499,149 +519,50 @@ local function setupCharacterMonitor(player)
     end)
 end
 
--- HITBOX MANAGEMENT FUNCTIONS - FIXED
-local function storeOriginalSize(part)
-    if not part then return end
-    -- Only store if we haven't already
-    if not originalSizes[part] then
-        originalSizes[part] = part.Size
-    end
-end
-
-local function restoreOriginalSize(part)
-    if part and originalSizes[part] and part.Parent then
-        -- Only restore if it exists and is valid
-        pcall(function()
-            part.Size = originalSizes[part]
-        end)
-    end
-end
-
-local function expandHitbox(part, size)
-    if not part or not part.Parent then return end
-    storeOriginalSize(part)
-    -- Use pcall to prevent errors if part is destroyed
-    pcall(function()
-        part.Size = Vector3.new(size, size, size)
-    end)
-end
-
-local function resetAllHitboxes()
-    -- Use a separate table to avoid modification during iteration
-    local partsToReset = {}
-    for part, originalSize in pairs(originalSizes) do
-        if part and part.Parent then
-            table.insert(partsToReset, part)
-        else
-            originalSizes[part] = nil
-        end
-    end
-    
-    for _, part in ipairs(partsToReset) do
-        restoreOriginalSize(part)
-    end
-end
-
-local function applyHitboxExpansion()
-    if not Config['Hitbox Expander']['Enabled'] then 
-        resetAllHitboxes()
-        return 
-    end
-    
-    local expandSize = Config['Hitbox Expander']['Size']
-    
-    -- FIXED: Only apply to HumanoidRootParts to reduce lag
-    if isLocking and currentTargetPlayer and currentTargetPlayer.Character then
-        -- Reset ALL hitboxes first (much faster than checking each)
-        resetAllHitboxes()
-        
-        -- Then ONLY expand the locked target's hitbox
-        local targetHrp = currentTargetPlayer.Character:FindFirstChild("HumanoidRootPart")
-        if targetHrp then
-            expandHitbox(targetHrp, expandSize)
-        end
-    else
-        -- No target locked - expand EVERYONE'S hitbox
-        for _, player in pairs(Players:GetPlayers()) do
-            if player ~= LocalPlayer and player.Character then
-                local hrp = player.Character:FindFirstChild("HumanoidRootPart")
-                if hrp then
-                    expandHitbox(hrp, expandSize)
-                end
-            end
-        end
-    end
-end
-
--- FIXED: Speed function
-local function applySpeed()
-    if not SpeedEnabled or not Config['Speed']['Enabled'] then 
-        -- Reset speed if not enabled
-        local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-        if humanoid and humanoid.WalkSpeed ~= BaseSpeed then
-            humanoid.WalkSpeed = BaseSpeed
-        end
-        return 
-    end
-    
-    local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-    if humanoid then
-        humanoid.WalkSpeed = BaseSpeed * Config['Speed']['Multiplier']
-    end
-end
-
--- Main loop - OPTIMIZED
+-- Main loop
 RunService.RenderStepped:Connect(function()
-    -- Check for knock states
     if isSelfKnocked() and isLocking then
         isLocking = false
         targetLine.Visible = false
     end
     
-    -- Update target if needed (only when locking)
-    if isLocking then
-        if currentTargetPlayer and currentTargetPlayer.Character then
-            if not currentTarget or not currentTarget.Parent then
-                updateTargetPart()
+    -- Auto-update target part if we have a target player
+    if currentTargetPlayer and currentTargetPlayer.Character then
+        if not currentTarget or not currentTarget.Parent then
+            updateTargetPart()
+        end
+    elseif currentTargetPlayer and not currentTargetPlayer.Character then
+        -- Player exists but no character (respawning) - keep target but mark as invalid
+        currentTarget = nil
+    end
+    
+    TriggerBot()
+    
+    -- Speed
+    if SpeedEnabled and Config['Speed']['Enabled'] then
+        local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = BaseSpeed * Config['Speed']['Multiplier']
+        end
+    end
+    
+    -- Hitbox Expander
+    if Config['Hitbox Expander']['Enabled'] then
+        for _, player in pairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer and player.Character then
+                local hrp = player.Character:FindFirstChild("HumanoidRootPart")
+                if hrp then
+                    hrp.Size = Vector3.new(Config['Hitbox Expander']['Size'], Config['Hitbox Expander']['Size'], Config['Hitbox Expander']['Size'])
+                end
             end
-        elseif currentTargetPlayer and not currentTargetPlayer.Character then
-            currentTarget = nil
         end
     end
     
-    -- Trigger bot
-    if Config['Trigger Bot']['Enabled'] and triggerEnabled then
-        TriggerBot()
-    end
+    update3DFOVBox()
+    updateTargetLine()
+    refreshESP()
     
-    -- Speed (run every frame to ensure it stays applied)
-    applySpeed()
-    
-    -- Hitbox Expander (run less frequently to reduce lag - every 5 frames)
-    if RunService:GetFrameCount() % 5 == 0 then
-        applyHitboxExpansion()
-    end
-    
-    -- Visual updates (only if enabled)
-    if Config['FOV']['Enabled'] then
-        update3DFOVBox()
-    end
-    
-    if Config['Target Line']['Enabled'] then
-        updateTargetLine()
-    end
-    
-    if Config['Visual Awareness']['Enabled'] then
-        refreshESP()
-    else
-        -- Hide ESP if disabled
-        for _, esp in pairs(espLabels) do
-            esp.nameTag.Visible = false
-        end
-    end
-    
-    -- Camera lock
-    if Config['Camera Lock']['Enabled'] and isLocking then
+    if Config['Camera Lock']['Enabled'] then
         applyCameraLock()
     end
 end)
@@ -704,7 +625,7 @@ UserInputService.InputBegan:Connect(function(input, processed)
     if input.KeyCode == Enum.KeyCode[Config['Keybinds']['Speed']] then
         SpeedEnabled = not SpeedEnabled
         if not SpeedEnabled then
-            local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid")
             if humanoid then
                 humanoid.WalkSpeed = BaseSpeed
             end
@@ -739,15 +660,3 @@ UserInputService.InputEnded:Connect(function(input, processed)
         end
     end
 end)
-
--- Cleanup when script ends
-LocalPlayer.CharacterRemoving:Connect(function()
-    if isLocking then
-        isLocking = false
-        targetLine.Visible = false
-    end
-    SpeedEnabled = false
-    resetAllHitboxes()
-end)
-
-
