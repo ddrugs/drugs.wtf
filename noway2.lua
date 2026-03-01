@@ -60,6 +60,22 @@ local lastTriggerClick = 0
 -- Store original hitbox sizes
 local originalSizes = {}
 
+-- Body parts priority for aiming (head is highest priority)
+local BODY_PARTS = {
+    "Head",
+    "UpperTorso",
+    "HumanoidRootPart",
+    "LowerTorso",
+    "LeftUpperArm",
+    "RightUpperArm",
+    "LeftLowerArm",
+    "RightLowerArm",
+    "LeftUpperLeg",
+    "RightUpperLeg",
+    "LeftLowerLeg",
+    "RightLowerLeg"
+}
+
 -- Visual elements
 local outlinePart = Instance.new("Part")
 outlinePart.Anchored = true
@@ -126,21 +142,19 @@ local function canSeeTarget(part)
     return rayResult == nil or rayResult.Instance:IsDescendantOf(character)
 end
 
+-- Improved function to get target body part with priority
 local function getBestTargetPart(character)
     if not character then return nil end
     
-    local head = character:FindFirstChild("Head")
-    if head then return head end
+    -- Try to get body parts in order of priority
+    for _, partName in ipairs(BODY_PARTS) do
+        local part = character:FindFirstChild(partName)
+        if part and part:IsA("BasePart") then
+            return part
+        end
+    end
     
-    local upperTorso = character:FindFirstChild("UpperTorso")
-    if upperTorso then return upperTorso end
-    
-    local hrp = character:FindFirstChild("HumanoidRootPart")
-    if hrp then return hrp end
-    
-    local lowerTorso = character:FindFirstChild("LowerTorso")
-    if lowerTorso then return lowerTorso end
-    
+    -- Fallback: find any BasePart
     for _, part in pairs(character:GetChildren()) do
         if part:IsA("BasePart") and part.Name ~= "Handle" then
             return part
@@ -320,14 +334,43 @@ local function TriggerBot()
     end
 end
 
+-- Improved Silent Aim with weapon type detection
+local function isShotgun(tool)
+    if not tool then return false end
+    
+    local toolName = tool.Name:lower()
+    -- Common shotgun names in Da Hood
+    local shotgunNames = {"shotgun", "db", "doublebarrel", "remington", "spas"}
+    
+    for _, name in ipairs(shotgunNames) do
+        if toolName:find(name) then
+            return true
+        end
+    end
+    
+    -- Check for shotgun-specific traits
+    local handle = tool:FindFirstChild("Handle")
+    if handle then
+        -- Some shotguns might have specific attributes
+        if handle:FindFirstChild("ShotgunPellet") or handle:FindFirstChild("Spread") then
+            return true
+        end
+    end
+    
+    return false
+end
+
 -- Silent Aim
 local grm = getrawmetatable(game)
 local oldIndex = grm.__index
+local oldNamecall = grm.__namecall
 setreadonly(grm, false)
 
+-- Override __index for Mouse.Hit
 grm.__index = function(self, key)
-    if not checkcaller() and self == Mouse and Config['Silent Aim']['Enabled'] then
-        if key == "Hit" then
+    if not checkcaller() and self == Mouse then
+        -- For Mouse.Hit (silent aim)
+        if key == "Hit" and Config['Silent Aim']['Enabled'] then
             if currentTargetPlayer and currentTargetPlayer.Character then
                 updateTargetPart()
                 
@@ -337,14 +380,58 @@ grm.__index = function(self, key)
                     end
                     
                     local predictedPos = getPredictedPosition(currentTarget, Config['Silent Aim'])
+                    
+                    -- Check current tool to adjust aim position
+                    local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
+                    if isShotgun(tool) then
+                        -- For shotguns, aim slightly higher to prevent floor aiming
+                        predictedPos = predictedPos + Vector3.new(0, 1.5, 0)
+                    end
+                    
                     return CFrame.new(predictedPos)
                 end
             end
             
             return oldIndex(self, key)
         end
+        
+        -- For Mouse.Target (optional, helps with raycast weapons)
+        if key == "Target" and Config['Silent Aim']['Enabled'] then
+            if currentTarget then
+                return currentTarget
+            end
+        end
+        
+        -- For Mouse.UnitRay (used by some weapons)
+        if key == "UnitRay" and Config['Silent Aim']['Enabled'] then
+            if currentTarget then
+                local direction = (currentTarget.Position - Camera.CFrame.Position).Unit
+                return Ray.new(Camera.CFrame.Position, direction)
+            end
+        end
     end
     return oldIndex(self, key)
+end
+
+-- Override __namecall for FindPartOnRay (used by many weapons)
+grm.__namecall = function(self, ...)
+    local method = getnamecallmethod()
+    local args = {...}
+    
+    if not checkcaller() and Config['Silent Aim']['Enabled'] and currentTarget then
+        -- Handle raycast methods
+        if method == "FindPartOnRay" or method == "FindPartOnRayWithIgnoreList" or method == "FindPartOnRayWithWhitelist" then
+            local ray = self
+            if type(ray) == "userdata" and tostring(ray):match("Ray") then
+                -- Create a new ray pointing at the target
+                local direction = (currentTarget.Position - ray.Origin).Unit * 1000
+                local newRay = Ray.new(ray.Origin, direction)
+                return oldNamecall(unpack({newRay, table.unpack(args, 2)}))
+            end
+        end
+    end
+    
+    return oldNamecall(self, ...)
 end
 
 setreadonly(grm, true)
@@ -364,7 +451,7 @@ oldRandom = hookfunction(math.random, function(...)
     return oldRandom(...)
 end)
 
--- ESP Functions
+-- ESP Functions (rest remains the same as original)
 local function addESPToPlayer(player)
     if player == LocalPlayer then return end
     
@@ -568,8 +655,7 @@ RunService.RenderStepped:Connect(function()
         end
     end
     
-    -- Hitbox Expander with the new rule:
-    -- Everyone expanded by default, only locked target stays expanded when locking
+    -- Hitbox Expander
     applyHitboxExpansion()
     
     update3DFOVBox()
@@ -673,8 +759,8 @@ UserInputService.InputEnded:Connect(function(input, processed)
             triggerEnabled = false
         end
     end
-
 end)
+
 
 
 
