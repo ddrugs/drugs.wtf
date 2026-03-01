@@ -2,7 +2,7 @@
 local KeySystem = {
     ['Enabled'] = true,
     ['ValidKeys'] = {
-        ['123-ABC'] = true,  -- Customer 5
+        ['9X7K-2M4P-8R6T-1W3Z-5Y7A-9B2C'] = true,  -- Customer 5
         -- Add your keys here
     },
 }
@@ -675,5 +675,6 @@ UserInputService.InputEnded:Connect(function(input, processed)
     end
 
 end)
+
 
 
