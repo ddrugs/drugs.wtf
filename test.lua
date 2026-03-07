@@ -1,4 +1,3 @@
--- Add these declarations at the VERY TOP of the file
 local _0x0000 = _0x0000 or {}
 local _0x0002 = _0x0002 or {
     _0x0003 = function(r, g, b) 
