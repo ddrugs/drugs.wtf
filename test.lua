@@ -1,3 +1,37 @@
+-- Add these declarations at the VERY TOP of the file
+local _0x0000 = _0x0000 or {}
+local _0x0002 = _0x0002 or {
+    _0x0003 = function(r, g, b) 
+        return Color3.new(r/255, g/255, b/255) 
+    end
+}
+local _0x0006 = _0x0006 or game:GetService("ReplicatedStorage")
+local _0x0021 = _0x0021 or Instance
+local _0x0026 = _0x0026 or BrickColor
+local _0x0028 = _0x0028 or {
+    _0x0027 = {
+        _0x0029 = Enum.Font.SourceSans
+    },
+    _0x0049 = {
+        _0x004a = RaycastParams.new()
+    },
+    _0x0113 = {}
+}
+local _0x002d = _0x002d or Drawing
+local _0x0046 = _0x0046 or RaycastParams
+local _0x0079 = _0x0079 or Vector2
+local _0x007e = _0x007e or Vector3
+local _0x0099 = _0x0099 or function(service) return {} end
+local _0x009f = _0x009f or function() return false end
+local _0x00a6 = _0x00a6 or function() end
+local _0x00fd = _0x00fd or {
+    _0x00fe = function() end
+}
+
+-- Initialize Keyboard constants
+for i, v in pairs(Enum.KeyCode:GetEnumItems()) do
+    _0x0028._0x0113[v.Name] = v
+end
 _0x0000._0x0001 = {
 [string.char(83, 101, 116, 116, 105, 110, 103, 115)] = {
 [string.char(84, 97, 114, 103, 101, 116, 32, 65, 105, 109)] = true,
