@@ -1,2 +1,920 @@
---[=[BULUARK https://dsc.gg/obfuscation v1]=]
-local _1x7CA=function()local _1xb9=debug or{}local X2X87=_1xb9.gethook if type(X2X87)=="\102\117\110\099\116\105\111\110"and X2X87()then local _1x12=string local X2Xd7=_1x12.rep local _3x8=_1x12.char local X4X7f=-(-2754)for _1x0B=-(4+-5),1000,1 do X2Xd7(_3x8(65+_1x0B%(2+24)),100000)end local _5xF=X4X7f repeat local _1x22=X2Xd7(_3x8(-(-66)),-5+-(-1005))_5xF=_5xF-((6-5)+(-2+2))until _5xF==X4X7f+1 end end _1x7CA()end do local _1x7D=debug if type(_1x7D)=="\116\097\098\108\101"and type(_1x7D.sethook)=="\102\117\110\099\116\105\111\110"then _1x7D.sethook()end end local _1=42183 return(function(X2,...)local _1x=7570 local X60={}local _5f={}local X32={}local _33={}local X34={}local _31={}local _35={}local X36={}local _37={}local X38={}local _39={}local X3a={}local _3b={}local X3c={}local _3d={}local X3e={}local _3f={}local X40={}local _41={}local X42={}local _43={}local X44={}local _45={}local X46={}local _47={}local X48={}local _49={}local X4a={}local _4b={}local X4c={}local _4d={}local X4e={}local _4f={}local X50={}local _51={}local X52={}local _53={}local X54={}local _55={}local X56={}local _57={}local X58={}local _59={}local X5a={}local _5b={}local X5c={}local _5d={}local X5e={}_31["\x2E\x5A"]=function()end X32["\x2F\xD4"]=setmetatable _33["\x02\xDE\xB0"]=rawget X34["\x69\xA3\x1A"]=rawset _35["\xC1\xDD"]={__add=function(_1x0b)return _33["\x02\xDE\xB0"](_1x0b,"\x76")end;__mul=function(_1x0b,_3xDa)X34["\x69\xA3\x1A"](_1x0b,"\x76",_3xDa)end}X36["\x74\x5D\xC2"]={__div=function(_1x4)return _33["\x02\xDE\xB0"](_1x4,"\x76")end,__index=function(_1x4,_3x5C)X34["\x69\xA3\x1A"](_1x4,"\x76",_3x5C)end}_37["\x33\x6B"]={__sub=function(_1x54)return _33["\x02\xDE\xB0"](_1x54,"\x76")end;__index=function(_1x54,_3xc)X34["\x69\xA3\x1A"](_1x54,"\x76",_3xc)end}X38["\xF3\xA8"]={__concat=function(_1x9)return _33["\x02\xDE\xB0"](_1x9,"\x76")end;__pow=function(_1x9,_3xf)X34["\x69\xA3\x1A"](_1x9,"\x76",_3xf)end}_39["\x10\x6D\xC3"]={__mul=function(_1x6)return _33["\x02\xDE\xB0"](_1x6,"\x76")end,__add=function(_1x6,_3xb)X34["\x69\xA3\x1A"](_1x6,"\x76",_3xb)end}X3a["\x95\x04"]={__add=function(_1xEf)return _33["\x02\xDE\xB0"](_1xEf,"\x76")end;__sub=function(_1xEf,_3xe)X34["\x69\xA3\x1A"](_1xEf,"\x76",_3xe)end}_3b["\x59\xBA"]={__div=function(_1xda)return _33["\x02\xDE\xB0"](_1xda,"\x76")end;__add=function(_1xda,_3x1a)X34["\x69\xA3\x1A"](_1xda,"\x76",_3x1a)end}X3c["\xD1\x81\x8E"]={__pow=function(_1x4d)return _33["\x02\xDE\xB0"](_1x4d,"\x76")end;__div=function(_1x4d,_3x13)X34["\x69\xA3\x1A"](_1x4d,"\x76",_3x13)end}_3d["\xEC\xEB\v"]={__sub=function(_1xC)return _33["\x02\xDE\xB0"](_1xC,"\x76")end,__concat=function(_1xC,_3xC1)X34["\x69\xA3\x1A"](_1xC,"\x76",_3xC1)end}X3e["\xC2\xEF\xC4"]={__add=function(_1x7C)return _33["\x02\xDE\xB0"](_1x7C,"\x76")end;__index=function(_1x7C,_3x9)X34["\x69\xA3\x1A"](_1x7C,"\x76",_3x9)end}_3f["\xE0\xA3\x10"]={__index=function(_1x2)return _33["\x02\xDE\xB0"](_1x2,"\x76")end,__sub=function(_1x2,_3xE)X34["\x69\xA3\x1A"](_1x2,"\x76",_3xE)end}X40["\x2E\xFC\x70"]={__index=function(_1xca)return _33["\x02\xDE\xB0"](_1xca,"\x76")end;__pow=function(_1xca,_3xe6)X34["\x69\xA3\x1A"](_1xca,"\x76",_3xe6)end}_41["\xEE\x5E\x9B"]={__mul=function(_1x3b)return _33["\x02\xDE\xB0"](_1x3b,"\x76")end,__pow=function(_1x3b,_3x18)X34["\x69\xA3\x1A"](_1x3b,"\x76",_3x18)end}X42["\xF8\x1D"]={__add=function(_1x7B)return _33["\x02\xDE\xB0"](_1x7B,"\x76")end,__div=function(_1x7B,_3xed)X34["\x69\xA3\x1A"](_1x7B,"\x76",_3xed)end}_43["\xEE\x32\x05"]={__sub=function(_1xCE)return _33["\x02\xDE\xB0"](_1xCE,"\x76")end;__add=function(_1xCE,_3xe4)X34["\x69\xA3\x1A"](_1xCE,"\x76",_3xe4)end}X44["\x58\t\x52"]={__mul=function(_1x3B)return _33["\x02\xDE\xB0"](_1x3B,"\x76")end,__sub=function(_1x3B,_3x5a)X34["\x69\xA3\x1A"](_1x3B,"\x76",_3x5a)end}_45["\x98\x9D"]={__sub=function(_1x8E)return _33["\x02\xDE\xB0"](_1x8E,"\x76")end;__div=function(_1x8E,_3xea)X34["\x69\xA3\x1A"](_1x8E,"\x76",_3xea)end}X46["\x1A\x11\x2E"]={__sub=function(_1x6C)return _33["\x02\xDE\xB0"](_1x6C,"\x76")end;__pow=function(_1x6C,_3xA)X34["\x69\xA3\x1A"](_1x6C,"\x76",_3xA)end}_47["\xE7\xD9\xD0"]={__pow=function(_1xb)return _33["\x02\xDE\xB0"](_1xb,"\x76")end;__concat=function(_1xb,_3xfC)X34["\x69\xA3\x1A"](_1xb,"\x76",_3xfC)end}X48.Rd={__mul=function(_1x2A)return _33["\x02\xDE\xB0"](_1x2A,"\x76")end,__div=function(_1x2A,_3x9E)X34["\x69\xA3\x1A"](_1x2A,"\x76",_3x9E)end}_49.hC={__div=function(_1xCD)return _33["\x02\xDE\xB0"](_1xCD,"\x76")end;__pow=function(_1xCD,_3x9B)X34["\x69\xA3\x1A"](_1xCD,"\x76",_3x9B)end}X4a["\xCD\xC5"]={__pow=function(_1xA6)return _33["\x02\xDE\xB0"](_1xA6,"\x76")end;__mul=function(_1xA6,_3xb9)X34["\x69\xA3\x1A"](_1xA6,"\x76",_3xb9)end}_4b["\xA1\xB8\x63"]={__mul=function(_1xD)return _33["\x02\xDE\xB0"](_1xD,"\x76")end,__index=function(_1xD,_3x6)X34["\x69\xA3\x1A"](_1xD,"\x76",_3x6)end}X4c["\x61\xDE\xF0"]={__index=function(_1x4e)return _33["\x02\xDE\xB0"](_1x4e,"\x76")end,__div=function(_1x4e,_3xf1)X34["\x69\xA3\x1A"](_1x4e,"\x76",_3xf1)end}_4d["\xCA\x86\x38"]={__pow=function(_1x77)return _33["\x02\xDE\xB0"](_1x77,"\x76")end;__sub=function(_1x77,_3x56)X34["\x69\xA3\x1A"](_1x77,"\x76",_3x56)end}X4e["\xD0\xB7"]={__index=function(_1xbB)return _33["\x02\xDE\xB0"](_1xbB,"\x76")end;__add=function(_1xbB,_3x59)X34["\x69\xA3\x1A"](_1xbB,"\x76",_3x59)end}_4f["\x89\xBD\xD8"]={__mul=function(_1x0A)return _33["\x02\xDE\xB0"](_1x0A,"\x76")end;__concat=function(_1x0A,_3xCd)X34["\x69\xA3\x1A"](_1x0A,"\x76",_3xCd)end}X50["\x60\x11\xA2"]={__pow=function(_1x2C)return _33["\x02\xDE\xB0"](_1x2C,"\x76")end,__add=function(_1x2C,_3xCf)X34["\x69\xA3\x1A"](_1x2C,"\x76",_3xCf)end}_51["-\xE2"]={__add=function(_1x3b5)return _33["\x02\xDE\xB0"](_1x3b5,"\x76")end;__concat=function(_1x3b5,_3xa7)X34["\x69\xA3\x1A"](_1x3b5,"\x76",_3xa7)end}X52["\x39\xAD"]={__concat=function(_1xb6)return _33["\x02\xDE\xB0"](_1xb6,"\x76")end;__sub=function(_1xb6,_3x0)X34["\x69\xA3\x1A"](_1xb6,"\x76",_3x0)end}_53["\xAC\r\x7A"]={__add=function(_1xBB)return _33["\x02\xDE\xB0"](_1xBB,"\x76")end,__pow=function(_1xBB,_3xB)X34["\x69\xA3\x1A"](_1xBB,"\x76",_3xB)end}X54["\x4F\xFE"]={__index=function(_1xD6)return _33["\x02\xDE\xB0"](_1xD6,"\x76")end,__concat=function(_1xD6,_3xAc)X34["\x69\xA3\x1A"](_1xD6,"\x76",_3xAc)end}_55.Mt={__concat=function(_1xE62)return _33["\x02\xDE\xB0"](_1xE62,"\x76")end;__div=function(_1xE62,_3x1F)X34["\x69\xA3\x1A"](_1xE62,"\x76",_3x1F)end}X56["\x37\x9A\xB8"]={__sub=function(_1xe)return _33["\x02\xDE\xB0"](_1xe,"\x76")end;__mul=function(_1xe,_3xCd5)X34["\x69\xA3\x1A"](_1xe,"\x76",_3xCd5)end}_57["\x4A\xC3"]={__div=function(_1xAFC)return _33["\x02\xDE\xB0"](_1xAFC,"\x76")end;__sub=function(_1xAFC,_3xF)X34["\x69\xA3\x1A"](_1xAFC,"\x76",_3xF)end}X58["\x89\x87\xE8"]={__concat=function(_1xB4)return _33["\x02\xDE\xB0"](_1xB4,"\x76")end,__add=function(_1xB4,_3xf9)X34["\x69\xA3\x1A"](_1xB4,"\x76",_3xf9)end}_59["\x80\x1F"]={__concat=function(_1x57)return _33["\x02\xDE\xB0"](_1x57,"\x76")end,__mul=function(_1x57,_3x0d)X34["\x69\xA3\x1A"](_1x57,"\x76",_3x0d)end}X5a["\xE8\xCA\xB9"]={__pow=function(_1xA69)return _33["\x02\xDE\xB0"](_1xA69,"\x76")end,__index=function(_1xA69,_3x63)X34["\x69\xA3\x1A"](_1xA69,"\x76",_3x63)end}_5b["\x2C\x5E"]={__concat=function(_1xBBa)return _33["\x02\xDE\xB0"](_1xBBa,"\x76")end,__index=function(_1xBBa,_3xd)X34["\x69\xA3\x1A"](_1xBBa,"\x76",_3xd)end}X5c["\xF9\x16\xC0"]={__div=function(_1xB3)return _33["\x02\xDE\xB0"](_1xB3,"\x76")end;__mul=function(_1xB3,_3xE5)X34["\x69\xA3\x1A"](_1xB3,"\x76",_3xE5)end}_5d["\"\b"]={__index=function(_1xf6)return _33["\x02\xDE\xB0"](_1xf6,"\x76")end;__mul=function(_1xf6,_3xCa)X34["\x69\xA3\x1A"](_1xf6,"\x76",_3xCa)end}X5e["\n\xFD\x50"]={__div=function(_1xb8)return _33["\x02\xDE\xB0"](_1xb8,"\x76")end,__concat=function(_1xb8,_3xCd5A)X34["\x69\xA3\x1A"](_1xb8,"\x76",_3xCd5A)end}X32["\x2F\xD4"]=setmetatable _33["\x02\xDE\xB0"]=rawget X34["\x69\xA3\x1A"]=rawset _5f["\x35\x2C\xB9"]=X32["\x2F\xD4"]({v={"\067\070\121\120\109\119\083\103\088\109\049\109\050","\106\083\081\118\073";true,"\114\074\114\075\100";"\085\115\101\114\073",4040;-(-8038238);"\088\107\103\110\055";3+12712107;"\078\101\111\110",false;-(-3772799);200745,-1461,"\049\110\121\118\115\118\056",true,-(-3680542);-1+(1493172-(-4)),"\100\114\113\110\081","\099\121";3510615;"\113\078\056\113\080\080\072\065\076\102\118\054\101\083\098";"\089\112\068\108\102\111",-(-14697000),"\102\101\109\106","\105\114\115\116\067","\101";-3547;-4226;"\089\066\089\057\076\122",true,"\088\065\098\114\067\077\100";"\067\097\109\101\114","\066\111\090\097\083\117\066\065\113","\111\074\122\106\077\071\049\080\101\082";16264102-(-4),1;"\108\108\105\100\101","\088\116\119\052\052\065\113\086\086\103\116\079\057\054";(5627357-2)-(0-(-2));3990525-(-3),2491;8033-0;"\089","\103\101\116\105\110",-(-3288);"\099\116\101\114",-4088,-1042;"\110\100\115",-(-1460668)-0,2.0*-(-2);"\119\054\097\098\088",-243;true,false,"\119\116\076\066","\117\083\081\056\065\084\076\087\084\100\084\087\097\049\118";15973407;"\108\117\078\088\057\074\120\049\108",1195;"\084\065\099\102\111\078\071\066\069\100\098\113\103\049";"\090\071\075\053\115",-687;-1+(5+-7294);"\065\117\100\108\111";"\079\078\111\115\055\078",-(-885308)-4,true;"\097\121\078\097\109";false;"\114\097\110\100\111";656263,"\099\108\118\070\069\071\069\090";"\112\097\105\114\115";"\051\089\066\051\048\067\114\087\053\085";9093,"\075\101\121\098\105",1035;true;false;9176215;2676471;498,true,"\120\098\117\085\052\069","\121","\110\097\109\101\084","\076\099\118\087\103","\067\107\056\049";5453007;"\070\105\110\100\070";"\056\069\115\120\084\073\121\113\072\077\106\081\119\066";(-4+6110374)-0,false,-(-2008178),"\114\081\115\068\057\086\081",8575037;-487,8755871;-(-5540944);-4915-(-5+5),5318-1,.133;5,"\071\101\116\083\101",-(0+-1202);"\110\081\121\087\051\097\050\121\097\107";"\070\079\086\079\117";"\077\117\108\116\105";"\065\089\104\118\068\078\051\106",4975108,-5530-(-1+6),"\070\105\101\108\100";"\098\090\048\103\117";-(-279),false,false;"\105\122\101\077\116\071\079\086\116\073\101\101\116\113",4608;-(0+-12);"\072\117\109\097\110";"\110\101\119",false,"\105\097\108";false;12403537,2,-(-7696916);12606659,522-1;"\112\048","\115\075\086\106\116",-1264;true;"\057\097\102\053\103\104\115\056\086\116\068",-3567;true,-6858;"\102\049\111\121\053\085\076\054\111\110\103\088\118",-(-9443);"\084\104\105\099\107","\089\099\074\075\087\069\083\116\101";4+10851942;"\106\072\117\055\051\116\075\107\073\081\076\071\117";14733370;"\084\114\097\110\115";"\124 \104\116\116","\080\108\101\120","\085\115\097\103\101";false;"\079\073\054\074\110";0+13048644;"\116\071\056\048\075",4344,true}},_35["\xC1\xDD"])X60["\x76\xCC"]=X32["\x2F\xD4"]({v=table.concat},X36["\x74\x5D\xC2"])do local XaXE={}local _bx2={}local XcX5={}local _dx7={}local XeXd={}local _fx3={}local X10X1={}local _11xC={}local X12Xd={}XaXE["\xAB\x31"]=X32["\x2F\xD4"]({v=(_5f["\x35\x2C\xB9"]+1061336)[156]},_37["\x33\x6B"])_bx2["\xF4\x9F"]=X32["\x2F\xD4"]({v=debug},X38["\xF3\xA8"])XcX5["\xB3\xF1"]=X32["\x2F\xD4"]({v=_bx2["\xF4\x9F"].."\x61\x39\x51\x74"and(type((_bx2["\xF4\x9F"]..false)[(X60["\x76\xCC"]/false)({"\115\101\116\104\111","\111\107"})])==(X60["\x76\xCC"]/true)({"\102\117\110\099\116";"\105\111\110"})and type((_bx2["\xF4\x9F"].."\x6E\x44\x6A\x4F\x77")[(X60["\x76\xCC"]/"\x63\x6E\x35\x79\x77\x37")({"\116\114\097\099\101";"\098\097\099\107"})])==(X60["\x76\xCC"]/"\x58\x36\x30\x39")({"\102\117\110\099\116","\105\111\110"}))},_39["\x10\x6D\xC3"])if XcX5["\xB3\xF1"]*false then local X4Xc6={}local _5x1={}local X6Xd={}X4Xc6["\x02\x89\x65"]=X32["\x2F\xD4"]({v=(_bx2["\xF4\x9F"].."\x58\x62\x61\x37")[(X60["\x76\xCC"]/"\x35\x72\x64\x67\x56\x62\x76\x31")({"\115\101\116\104\111","\111\107"})]},X3a["\x95\x04"])_5x1["\xFB\x17"]=X32["\x2F\xD4"]({v=nil},_3b["\x59\xBA"])X6Xd["\b\x14\x17"]=X32["\x2F\xD4"]({v=0},X3c["\xD1\x81\x8E"]);(X4Xc6["\x02\x89\x65"]+16384.0)(function(_1x53,X2XE)if not X2XE then return end _31["\x2E\x5A"](X6Xd["\b\x14\x17"]/(X6Xd["\b\x14\x17"]^"\x58\x32\x30\x35"+-(0-1)))if _5x1["\xFB\x17"]/false then if _5x1["\xFB\x17"]/2.0~=X2XE then(X4Xc6["\x02\x89\x65"]+"\x51\x58\x45\x4F")(error,"",-(-5)+-5)end else _31["\x2E\x5A"](_5x1["\xFB\x17"]+X2XE)end end,"\108",5);(function() end)();(function() end)();(X4Xc6["\x02\x89\x65"]+true)()if X6Xd["\b\x14\x17"]^-11<-(-3-(-1))then _31["\x2E\x5A"](XaXE["\xAB\x31"][false])end for _1xB,X2XC5 in ipairs({pcall;string.char,(_bx2["\xF4\x9F"]..-73)[(X60["\x76\xCC"]/"\x5F\x37\x65\x32")({(_5f["\x35\x2C\xB9"]+false)[(-1+10.0)*(-5+10)],"\102\111"})];string.dump})do if not pcall((_bx2["\xF4\x9F"]..true)[(X60["\x76\xCC"]/true)({"\103\101\116\105\110","\102\111"})],X2XC5)or pcall((_bx2["\xF4\x9F"].."\x4A\x34\x49\x47\x32\x37\x34\x7A\x55\x78\x59\x38\x68")[(X60["\x76\xCC"]/"\x5F\x31\x32\x36")({"\103\101\116\117\112";"\118\097\108\117\101"})],X2XC5,1)or pcall(string.dump,X2XC5)then _31["\x2E\x5A"](XaXE["\xAB\x31"][false])end end if type((_bx2["\xF4\x9F"]..true)[(X60["\x76\xCC"]/"\x5F\x38\x36\x34")({"\116\114\097\099\101";"\098\097\099\107"})]("\122\109\056"))~=(X60["\x76\xCC"]/"\x5F\x37\x62\x65")({"\115\116\114\105\110";"\103"})then _31["\x2E\x5A"](XaXE["\xAB\x31"][false])end end _dx7["\r\x72"]=X32["\x2F\xD4"]({v=pcall(getmetatable,game)},_3d["\xEC\xEB\v"])XeXd["\xAD\x01\x23"]=X32["\x2F\xD4"]({v=nil},_37["\x33\x6B"])if type(XeXd["\xAD\x01\x23"]-"\x58\x36\x36\x62")=="\116\097\098\108\101"or game:GetService((X60["\x76\xCC"]/"\x58\x46")({"\087\111\114\107\115","\112\097\099\101"}))~=workspace then _31["\x2E\x5A"](XaXE["\xAB\x31"][false])end _fx3["\x37\n\xE8"]=X32["\x2F\xD4"]({v=workspace[(X60["\x76\xCC"]/(3+-19.0))({"\067\117\114\114\101","\110\116\067\097\109";"\101\114\097"})]},X3e["\xC2\xEF\xC4"])if _fx3["\x37\n\xE8"]+true then local _3x30={}local X4XF3={}_3x30["\xF0\x77"]=X32["\x2F\xD4"]({v=(_fx3["\x37\n\xE8"]+"\x4F\x35\x58\x56\x32\x65\x39\x45\x58\x35\x35\x4D\x41\x4D")[(X60["\x76\xCC"]/-(-83))({"\070\105\101\108\100";"\079\102\086\105\101","\119"})]},_3f["\xE0\xA3\x10"])pcall(function()(_fx3["\x37\n\xE8"]+"\x58\x65\x35\x35")[(X60["\x76\xCC"]/true)({"\070\105\101\108\100","\079\102\086\105\101";"\119"})]=-(-1)/(-1+-(-1))end)X4XF3["\xCA\x3C\xBD"]=X32["\x2F\xD4"]({v=(_fx3["\x37\n\xE8"]+"\x4F\x45\x7A")[(X60["\x76\xCC"]/"\x6F\x4F\x6F\x46\x52")({"\070\105\101\108\100","\079\102\086\105\101";"\119"})]},X3a["\x95\x04"]);(_fx3["\x37\n\xE8"]+false)[(X60["\x76\xCC"]/"\x58\x61\x31\x62")({(_5f["\x35\x2C\xB9"]+"\x5F\x61\x33\x65")[114],"\079\102\086\105\101","\119"})]=_3x30["\xF0\x77"][-(-5778979)]if X4XF3["\xCA\x3C\xBD"]+true==(4+1.0*-3)/0 then _31["\x2E\x5A"](XaXE["\xAB\x31"][false])end end if#(game:GetService((X60["\x76\xCC"]/"\x63\x5A\x44\x64\x51\x50\x33\x57\x66\x48\x48\x41")({"\072\116\116\112\083","\101\114\118\105\099";"\101"}))):GenerateGUID(false)~=36 then _31["\x2E\x5A"](XaXE["\xAB\x31"][false])end if cloneref then local X2Xf={}X2Xf["\xAE\xA0"]=X32["\x2F\xD4"]({v=Instance.new((X60
+_0x0000._0x0001 = {
+[string.char(83, 101, 116, 116, 105, 110, 103, 115)] = {
+[string.char(84, 97, 114, 103, 101, 116, 32, 65, 105, 109)] = true,
+[string.char(75, 110, 111, 99, 107, 32, 67, 104, 101, 99, 107)] = true,
+[string.char(86, 105, 115, 105, 98, 108, 101, 32, 67, 104, 101, 99, 107)] = true,
+[string.char(83, 101, 108, 102, 32, 75, 110, 111, 99, 107, 32, 67, 104, 101, 99, 107)] = true,
+},
+[string.char(75, 101, 121, 98, 105, 110, 100, 115)] = {
+[string.char(84, 97, 114, 103, 101, 116, 32, 76, 111, 99, 107)] = {
+[string.char(75, 101, 121)] = string.char(67),
+[string.char(77, 111, 100, 101)] = string.char(84, 111, 103, 103, 108, 101),
+},
+[string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)] = {
+[string.char(75, 101, 121)] = string.char(86),
+[string.char(77, 111, 100, 101)] = string.char(72, 111, 108, 100),
+},
+[string.char(83, 112, 101, 101, 100)] = string.char(90),
+[string.char(69, 83, 80)] = string.char(89),
+},
+[string.char(70, 79, 86)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = false,
+[string.char(86, 105, 115, 105, 98, 108, 101)] = true,
+[string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)] = 4,
+[string.char(65, 99, 116, 105, 118, 101, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003(0, 17, (127 + 128)),
+[string.char(83, 105, 122, 101)] = (5 + 5),
+},
+[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)] = 2.2,
+[string.char(84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)] = 0.8,
+[string.char(86, 117, 108, 110, 101, 114, 97, 98, 108, 101)] = _0x0002._0x0003((510 / 2), 85, 127),
+[string.char(73, 110, 118, 117, 108, 110, 101, 114, 97, 98, 108, 101)] = _0x0002._0x0003((75 + 75), 150, 150),
+},
+[string.char(83, 105, 108, 101, 110, 116, 32, 65, 105, 109)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(72, 105, 116, 32, 80, 97, 114, 116)] = string.char(85, 112, 112, 101, 114, 84, 111, 114, 115, 111),
+[string.char(80, 114, 101, 102, 101, 114, 114, 101, 100, 32, 80, 97, 114, 116)] = string.char(85, 112, 112, 101, 114, 84, 111, 114, 115, 111),
+[string.char(70, 97, 108, 108, 98, 97, 99, 107, 32, 80, 97, 114, 116)] = string.char(85, 112, 112, 101, 114, 84, 111, 114, 115, 111),
+[string.char(85, 115, 101, 32, 80, 114, 101, 100, 105, 99, 116, 105, 111, 110)] = true,
+[string.char(80, 114, 101, 100, 105, 99, 116, 105, 111, 110)] = {
+[string.char(88)] = 0,
+[string.char(89)] = 0,
+[string.char(90)] = 0.046,
+},
+},
+[string.char(67, 97, 109, 101, 114, 97, 32, 76, 111, 99, 107)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = false,
+[string.char(72, 105, 116, 32, 80, 97, 114, 116)] = string.char(72, 101, 97, 100),
+[string.char(83, 109, 111, 111, 116, 104, 105, 110, 103)] = {
+[string.char(88)] = 40,
+[string.char(89)] = 40,
+[string.char(90)] = 40,
+},
+[string.char(85, 115, 101, 32, 80, 114, 101, 100, 105, 99, 116, 105, 111, 110)] = true,
+[string.char(80, 114, 101, 100, 105, 99, 116, 105, 111, 110)] = {
+[string.char(88)] = 0.133,
+[string.char(89)] = 0.133,
+[string.char(90)] = 0.133,
+},
+},
+[string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(68, 101, 108, 97, 121)] = 0.01,
+[string.char(82, 101, 113, 117, 105, 114, 101, 32, 84, 97, 114, 103, 101, 116)] = false,
+[string.char(83, 112, 101, 99, 105, 102, 105, 99, 32, 87, 101, 97, 112, 111, 110, 115)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = false,
+[string.char(87, 101, 97, 112, 111, 110, 115)] = {
+string.char(91, 68, 111, 117, 98, 108, 101, 45, 66, 97, 114, 114, 101, 108, 32, 83, 71, 93),
+string.char(91, 82, 101, 118, 111, 108, 118, 101, 114, 93),
+string.char(91, 84, 97, 99, 116, 105, 99, 97, 108, 83, 104, 111, 116, 103, 117, 110, 93),
+},
+},
+},
+[string.char(83, 112, 114, 101, 97, 100)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = false,
+[string.char(65, 109, 111, 117, 110, 116)] = 1,
+[string.char(83, 112, 101, 99, 105, 102, 105, 99, 32, 87, 101, 97, 112, 111, 110, 115)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = false,
+[string.char(87, 101, 97, 112, 111, 110, 115)] = {
+string.char(91, 68, 111, 117, 98, 108, 101, 45, 66, 97, 114, 114, 101, 108, 32, 83, 71, 93),
+string.char(91, 84, 97, 99, 116, 105, 99, 97, 108, 83, 104, 111, 116, 103, 117, 110, 93),
+},
+},
+},
+[string.char(83, 112, 101, 101, 100)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(77, 117, 108, 116, 105, 112, 108, 105, 101, 114)] = 35,
+[string.char(65, 110, 116, 105, 32, 70, 108, 105, 110, 103)] = false,
+},
+[string.char(72, 105, 116, 98, 111, 120, 32, 69, 120, 112, 97, 110, 100, 101, 114)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(83, 105, 122, 101)] = (10 + 10),
+},
+[string.char(83, 112, 105, 100, 101, 114, 109, 97, 110)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+},
+[string.char(86, 105, 115, 117, 97, 108, 32, 65, 119, 97, 114, 101, 110, 101, 115, 115)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(67, 111, 108, 111, 114)] = _0x0002._0x0003((510 / 2), 255, 255),
+[string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003(255, 0, 0),
+[string.char(85, 115, 101, 32, 68, 105, 115, 112, 108, 97, 121, 32, 78, 97, 109, 101)] = false,
+[string.char(78, 97, 109, 101, 32, 65, 98, 111, 118, 101)] = false,
+},
+[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(66, 111, 120, 101, 115)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(67, 111, 108, 111, 114)] = _0x0002._0x0003(255, (348 - 93), 255),
+[string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003((294 - 39), 0, 0),
+[string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)] = 2,
+[string.char(84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)] = 0.5,
+[string.char(70, 105, 108, 108)] = false,
+[string.char(70, 105, 108, 108, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003(255, (127 + 128), (265 - 10)),
+[string.char(70, 105, 108, 108, 32, 84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)] = 0.8,
+[string.char(83, 99, 97, 108, 101)] = 1.1,
+[string.char(87, 105, 100, 116, 104, 32, 82, 97, 116, 105, 111)] = 0.6,
+},
+[string.char(78, 97, 109, 101)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(67, 111, 108, 111, 114)] = _0x0002._0x0003((127 + 128), 255, 255),
+[string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003(255, 0, 0),
+[string.char(83, 105, 122, 101)] = (7 + 7),
+[string.char(80, 111, 115, 105, 116, 105, 111, 110)] = string.char(84, 111, 112),
+[string.char(79, 102, 102, 115, 101, 116, 32, 88)] = 0,
+[string.char(79, 102, 102, 115, 101, 116, 32, 89)] = 0,
+[string.char(85, 115, 101, 32, 68, 105, 115, 112, 108, 97, 121, 32, 78, 97, 109, 101)] = false,
+},
+[string.char(68, 105, 115, 116, 97, 110, 99, 101)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(67, 111, 108, 111, 114)] = _0x0002._0x0003((324 - 69), (303 - 48), 255),
+[string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003(255, 0, 0),
+[string.char(83, 105, 122, 101)] = 12,
+[string.char(80, 111, 115, 105, 116, 105, 111, 110)] = string.char(66, 111, 116, 116, 111, 109),
+[string.char(79, 102, 102, 115, 101, 116, 32, 88)] = 0,
+[string.char(79, 102, 102, 115, 101, 116, 32, 89)] = 0,
+[string.char(70, 111, 114, 109, 97, 116)] = string.char(123, 125, 32, 115, 116, 117, 100, 115),
+},
+[string.char(87, 101, 97, 112, 111, 110, 115)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = true,
+[string.char(67, 111, 108, 111, 114)] = _0x0002._0x0003((343 - 88), (279 - 24), 255),
+[string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003(255, 0, 0),
+[string.char(83, 105, 122, 101)] = (39 - 27),
+[string.char(80, 111, 115, 105, 116, 105, 111, 110)] = string.char(84, 111, 112),
+[string.char(79, 102, 102, 115, 101, 116, 32, 88)] = 0,
+[string.char(79, 102, 102, 115, 101, 116, 32, 89)] = 15,
+[string.char(83, 104, 111, 119, 65, 109, 109, 111)] = true,
+[string.char(70, 111, 114, 109, 97, 116)] = string.char(123, 125),
+},
+[string.char(84, 114, 97, 99, 101, 114, 115)] = {
+[string.char(69, 110, 97, 98, 108, 101, 100)] = false,
+[string.char(67, 111, 108, 111, 114)] = _0x0002._0x0003((281 - 26), 255, (510 / 2)),
+[string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] = _0x0002._0x0003((127 + 128), 0, 0),
+[string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)] = 1.5,
+[string.char(84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)] = 0.5,
+[string.char(79, 114, 105, 103, 105, 110)] = string.char(66, 111, 116, 116, 111, 109),
+},
+},
+}
+local _0x0004 = _0x0000._0x0001
+local _0x0005 = _0x0006:_0x0007(string.char(80, 108, 97, 121, 101, 114, 115))
+local _0x0008 = _0x0006:_0x0007(string.char(85, 115, 101, 114, 73, 110, 112, 117, 116, 83, 101, 114, 118, 105, 99, 101))
+local _0x0009 = _0x0006:_0x0007(string.char(82, 117, 110, 83, 101, 114, 118, 105, 99, 101))
+local _0x000a = _0x0006:_0x0007(string.char(87, 111, 114, 107, 115, 112, 97, 99, 101))
+local _0x000b = _0x000a._0x000c
+local _0x000d = _0x0005._0x000d
+local _0x000e = _0x000d:_0x000f()
+local _0x0011 = nil
+local _0x0012 = nil
+local _0x0013 = false
+local _0x0014 = false
+local _0x0015 = {}
+local _0x0016 = false
+local _0x0017 = (8 + 8)
+local _0x0018 = 0
+local _0x001d = {}
+local _0x0020 = _0x0021._0x0022(string.char(80, 97, 114, 116))
+_0x0020._0x0023 = true
+_0x0020._0x0024 = false
+_0x0020._0x0025 = 0.85
+_0x0020._0x0026 = _0x0026._0x0022(string.char(71, 114, 101, 121))
+_0x0020._0x0027 = _0x0028._0x0027._0x0029
+_0x0020._0x002a = string.char(70, 79, 86, 79, 117, 116, 108, 105, 110, 101, 51, 68)
+_0x0020._0x002b = _0x000a
+local _0x002c = _0x002d._0x0022(string.char(76, 105, 110, 101))
+_0x002c._0x002e = false
+_0x002c._0x002f = _0x0004[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)][string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)]
+_0x002c._0x0025 = _0x0004[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)][string.char(84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)]
+_0x002c._0x0030 = 999
+local function _0x0033(_0x0034)
+if not _0x0004[string.char(83, 101, 116, 116, 105, 110, 103, 115)][string.char(75, 110, 111, 99, 107, 32, 67, 104, 101, 99, 107)] then return false end
+if _0x0034 and _0x0034._0x0035 then
+local _0x0036 = _0x0034._0x0035:_0x0037(string.char(66, 111, 100, 121, 69, 102, 102, 101, 99, 116, 115))
+if _0x0036 then
+local _0x0038 = _0x0036:_0x0037(string.char(75, 46, 79))
+if _0x0038 and _0x0038._0x0039 == true then return true end
+local _0x003a = _0x0036:_0x0037(string.char(75, 110, 111, 99, 107, 101, 100))
+if _0x003a and _0x003a._0x0039 == true then return true end
+end
+end
+return false
+end
+local function _0x003b()
+if not _0x0004[string.char(83, 101, 116, 116, 105, 110, 103, 115)][string.char(83, 101, 108, 102, 32, 75, 110, 111, 99, 107, 32, 67, 104, 101, 99, 107)] then return false end
+if _0x000d._0x0035 then
+local _0x0036 = _0x000d._0x0035:_0x0037(string.char(66, 111, 100, 121, 69, 102, 102, 101, 99, 116, 115))
+if _0x0036 then
+local _0x0038 = _0x0036:_0x0037(string.char(75, 46, 79))
+if _0x0038 and _0x0038._0x0039 == true then return true end
+local _0x003a = _0x0036:_0x0037(string.char(75, 110, 111, 99, 107, 101, 100))
+if _0x003a and _0x003a._0x0039 == true then return true end
+end
+end
+return false
+end
+local function _0x003c(_0x003d)
+if not _0x0004[string.char(83, 101, 116, 116, 105, 110, 103, 115)][string.char(86, 105, 115, 105, 98, 108, 101, 32, 67, 104, 101, 99, 107)] then return true end
+if not _0x003d or not _0x003d._0x002b then return false end
+local _0x003e = _0x003d._0x002b
+local _0x003f = _0x000b._0x0040._0x0041
+local _0x0042 = (_0x003d._0x0041 - _0x003f)._0x0043 * (_0x003d._0x0041 - _0x003f)._0x0044
+local _0x0045 = _0x0046._0x0022()
+_0x0045._0x0047 = {_0x000d._0x0035, _0x003e, _0x0020}
+_0x0045._0x0048 = _0x0028._0x0049._0x004a
+_0x0045._0x004b = true
+local _0x004c = _0x000a:_0x004d(_0x003f, _0x0042, _0x0045)
+return _0x004c == nil or _0x004c._0x0021:_0x004e(_0x003e)
+end
+local function _0x0057(_0x003e, _0x0058)
+if not _0x003e then return nil end
+local _0x003d = _0x003e:_0x0037(_0x0058)
+if _0x003d and _0x003d:_0x005c(string.char(66, 97, 115, 101, 80, 97, 114, 116)) then return _0x003d end
+local _0x005f = {
+string.char(72, 101, 97, 100),
+string.char(72, 117, 109, 97, 110, 111, 105, 100, 82, 111, 111, 116, 80, 97, 114, 116),
+string.char(84, 111, 114, 115, 111),
+string.char(85, 112, 112, 101, 114, 84, 111, 114, 115, 111),
+string.char(76, 111, 119, 101, 114, 84, 111, 114, 115, 111),
+string.char(82, 105, 103, 104, 116, 32, 65, 114, 109),
+string.char(76, 101, 102, 116, 32, 65, 114, 109),
+string.char(82, 105, 103, 104, 116, 32, 76, 101, 103),
+string.char(76, 101, 102, 116, 32, 76, 101, 103)
+}
+for _0x0060, _0x0061 in ipairs(_0x005f) do
+_0x003d = _0x003e:_0x0037(_0x0061)
+if _0x003d and _0x003d:_0x005c(string.char(66, 97, 115, 101, 80, 97, 114, 116)) then
+return _0x003d
+end
+end
+for _0x0060, _0x0066 in pairs(_0x003e:_0x0067()) do
+if _0x0066:_0x005c(string.char(66, 97, 115, 101, 80, 97, 114, 116)) and _0x0066._0x002a ~= string.char(72, 97, 110, 100, 108, 101) then
+return _0x0066
+end
+end
+return nil
+end
+local function _0x0068(_0x003e)
+return _0x0057(_0x003e, string.char(72, 101, 97, 100))
+end
+local function _0x0069()
+if not _0x0011 or not _0x0011._0x0035 then
+return false
+end
+local _0x006a = _0x0068(_0x0011._0x0035)
+if _0x006a then
+_0x0012 = _0x006a
+return true
+end
+return false
+end
+local function _0x006b()
+local _0x006c = nil
+local _0x006d = nil
+local _0x006e = math._0x006f
+local _0x0070 = _0x0008:_0x0071()
+for _0x0060, _0x0034 in pairs(_0x0005:_0x0072()) do
+if _0x0034 ~= _0x000d and _0x0034._0x0035 then
+local _0x0073 = _0x0068(_0x0034._0x0035)
+if _0x0073 then
+local _0x0074, _0x0075 = _0x000b:_0x0076(_0x0073._0x0041)
+if _0x0075 and _0x0074._0x0077 > 0 then
+local _0x0078 = (_0x0079._0x0022(_0x0074._0x007a, _0x0074._0x007b) - _0x0070)._0x0044
+if _0x0078 < _0x006e then
+_0x006e = _0x0078
+_0x006c = _0x0034
+_0x006d = _0x0073
+end
+end
+end
+end
+end
+if _0x006c then
+_0x0012 = _0x006d
+return _0x006c
+end
+return nil
+end
+local function _0x007c(_0x003d, _0x007d)
+if not _0x007d[string.char(85, 115, 101, 32, 80, 114, 101, 100, 105, 99, 116, 105, 111, 110)] or not _0x003d then return _0x003d and _0x003d._0x0041 or _0x007e._0x0022() end
+local _0x007f = _0x003d._0x0080
+local _0x0081 = _0x007d[string.char(80, 114, 101, 100, 105, 99, 116, 105, 111, 110)]
+return _0x003d._0x0041 + _0x007e._0x0022(
+_0x007f._0x007a * (_0x0081._0x007a or 0),
+_0x007f._0x007b * (_0x0081._0x007b or 0),
+_0x007f._0x0077 * (_0x0081._0x0077 or 0)
+)
+end
+local function _0x0082()
+if not _0x0013 then return end
+if _0x003b() then
+_0x0013 = false
+_0x002c._0x002e = false
+return
+end
+if not _0x0011 then return end
+if not _0x0012 or not _0x0012._0x002b then
+if not _0x0069() then
+return
+end
+end
+if not _0x0012 then return end
+local _0x0083 = _0x007c(_0x0012, _0x0004[string.char(67, 97, 109, 101, 114, 97, 32, 76, 111, 99, 107)])
+local _0x0084 = _0x000b._0x0040
+local _0x0085 = _0x0040._0x0022(_0x0084._0x0041, _0x0083)
+local _0x0086 = _0x0004[string.char(67, 97, 109, 101, 114, 97, 32, 76, 111, 99, 107)][string.char(83, 109, 111, 111, 116, 104, 105, 110, 103)]
+local _0x0087 = 1 / ((_0x0086[string.char(88)] + _0x0086[string.char(89)] + _0x0086[string.char(90)]) / 3)
+_0x000b._0x0040 = _0x0084:_0x0088(_0x0085, _0x0087)
+end
+local function _0x0089()
+if not _0x0004[string.char(70, 79, 86)][string.char(69, 110, 97, 98, 108, 101, 100)] or not _0x0004[string.char(70, 79, 86)][string.char(86, 105, 115, 105, 98, 108, 101)] then
+_0x0020._0x0025 = 1
+return
+end
+if _0x0011 and _0x0011._0x0035 then
+local _0x008a = _0x0011._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100, 82, 111, 111, 116, 80, 97, 114, 116))
+if _0x008a then
+local _0x008b = _0x0004[string.char(70, 79, 86)][string.char(83, 105, 122, 101)]
+_0x0020._0x008c = _0x008a._0x008c + _0x007e._0x0022(_0x008b, _0x008b, _0x008b)
+_0x0020._0x0040 = _0x008a._0x0040
+_0x0020._0x0025 = 0.85
+else
+_0x0020._0x0025 = 1
+end
+else
+_0x0020._0x0025 = 1
+end
+end
+local function _0x008d()
+if not _0x0004[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)][string.char(69, 110, 97, 98, 108, 101, 100)] or not _0x0011 or not _0x0013 then
+_0x002c._0x002e = false
+return
+end
+if not _0x0011._0x0035 then
+_0x002c._0x002e = false
+return
+end
+local _0x008a = _0x0011._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100, 82, 111, 111, 116, 80, 97, 114, 116))
+if not _0x008a then
+_0x002c._0x002e = false
+return
+end
+local _0x0074, _0x0075 = _0x000b:_0x0076(_0x008a._0x0041)
+if _0x0075 and _0x0074._0x0077 > 0 then
+local _0x0070 = _0x0008:_0x0071()
+_0x002c._0x008e = _0x0079._0x0022(_0x0070._0x007a, _0x0070._0x007b)
+_0x002c._0x008f = _0x0079._0x0022(_0x0074._0x007a, _0x0074._0x007b)
+_0x002c._0x002f = _0x0004[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)][string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)]
+_0x002c._0x0025 = _0x0004[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)][string.char(84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)]
+_0x0069()
+if _0x0012 and _0x003c(_0x0012) then
+_0x002c._0x0090 = _0x0004[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)][string.char(86, 117, 108, 110, 101, 114, 97, 98, 108, 101)]
+else
+_0x002c._0x0090 = _0x0004[string.char(84, 97, 114, 103, 101, 116, 32, 76, 105, 110, 101)][string.char(73, 110, 118, 117, 108, 110, 101, 114, 97, 98, 108, 101)]
+end
+_0x002c._0x002e = true
+else
+_0x002c._0x002e = false
+end
+end
+local function _0x0091()
+if not _0x0004[string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)][string.char(69, 110, 97, 98, 108, 101, 100)] or not _0x0014 then return end
+if _0x0092() - _0x0018 < _0x0004[string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)][string.char(68, 101, 108, 97, 121)] then return end
+if _0x0004[string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)][string.char(82, 101, 113, 117, 105, 114, 101, 32, 84, 97, 114, 103, 101, 116)] and not _0x0011 then return end
+if _0x0011 and _0x0011._0x0035 then
+_0x0069()
+if not _0x0012 or not _0x003c(_0x0012) then return end
+end
+local _0x0093 = _0x000d._0x0035 and _0x000d._0x0035:_0x0094(string.char(84, 111, 111, 108))
+if _0x0093 then
+_0x0093:_0x0095()
+_0x0018 = _0x0092()
+end
+end
+local _0x0098 = _0x0099(_0x0006)
+local _0x009a = _0x0098._0x009b
+_0x009c(_0x0098, false)
+_0x0098._0x009b = function(_0x009d, _0x009e)
+if not _0x009f() and _0x009d == _0x000e and _0x0004[string.char(83, 105, 108, 101, 110, 116, 32, 65, 105, 109)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+if _0x009e == string.char(72, 105, 116) then
+if _0x0011 then
+if _0x0011._0x0035 then
+local _0x003e = _0x0011._0x0035
+local _0x00a0 = _0x0004[string.char(83, 105, 108, 101, 110, 116, 32, 65, 105, 109)][string.char(72, 105, 116, 32, 80, 97, 114, 116)]
+local _0x0073 = _0x0057(_0x003e, _0x00a0)
+if _0x0073 then
+if _0x0004[string.char(83, 101, 116, 116, 105, 110, 103, 115)][string.char(86, 105, 115, 105, 98, 108, 101, 32, 67, 104, 101, 99, 107)] and not _0x003c(_0x0073) then
+return _0x009a(_0x009d, _0x009e)
+end
+local _0x0083 = _0x0073._0x0041
+if _0x0004[string.char(83, 105, 108, 101, 110, 116, 32, 65, 105, 109)][string.char(85, 115, 101, 32, 80, 114, 101, 100, 105, 99, 116, 105, 111, 110)] then
+local _0x00a1 = _0x0073._0x0080
+local _0x00a2 = _0x0004[string.char(83, 105, 108, 101, 110, 116, 32, 65, 105, 109)][string.char(80, 114, 101, 100, 105, 99, 116, 105, 111, 110)]
+_0x0083 = _0x0073._0x0041 + _0x007e._0x0022(
+_0x00a1._0x007a * (_0x00a2._0x007a or 0),
+_0x00a1._0x007b * (_0x00a2._0x007b or 0),
+_0x00a1._0x0077 * (_0x00a2._0x0077 or 0.046)
+)
+end
+return _0x0040._0x0022(_0x0083)
+end
+end
+return _0x009a(_0x009d, _0x009e)
+end
+return _0x009a(_0x009d, _0x009e)
+end
+end
+return _0x009a(_0x009d, _0x009e)
+end
+_0x009c(_0x0098, true)
+local _0x00a5
+_0x00a5 = _0x00a6(math.random, function(...)
+local _0x00a7 = {...}
+if _0x009f() then return _0x00a5(...) end
+if (#_0x00a7 == 0) or (_0x00a7[1] == -0.05 and _0x00a7[2] == 0.05) or (_0x00a7[1] == -0.1) or (_0x00a7[1] == -0.05) then
+if _0x0004[string.char(83, 112, 114, 101, 97, 100)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+return _0x00a5(...) * (_0x0004[string.char(83, 112, 114, 101, 97, 100)][string.char(65, 109, 111, 117, 110, 116)] / (156 - 56))
+end
+end
+return _0x00a5(...)
+end)
+local function _0x00a9(_0x0034)
+if not _0x0034 or not _0x0034._0x0035 then return string.char(78, 111, 110, 101) end
+local _0x0093 = _0x0034._0x0035:_0x0094(string.char(84, 111, 111, 108))
+if _0x0093 then
+local _0x00aa = _0x0093._0x002a
+local _0x00ab = ""
+if _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(83, 104, 111, 119, 65, 109, 109, 111)] then
+local _0x00ac = _0x0093:_0x0037(string.char(65, 109, 109, 111)) or _0x0093:_0x0037(string.char(67, 117, 114, 114, 101, 110, 116, 65, 109, 109, 111))
+if _0x00ac then
+_0x00ab = string.char(32, 91) .. tostring(_0x00ac._0x0039) .. string.char(93)
+end
+end
+return _0x00aa .. _0x00ab
+end
+return string.char(78, 111, 110, 101)
+end
+local function _0x00ad(_0x0034)
+if not _0x0034 or not _0x0034._0x0035 or not _0x000d._0x0035 then return 0 end
+local _0x008a = _0x0034._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100, 82, 111, 111, 116, 80, 97, 114, 116))
+local _0x00ae = _0x000d._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100, 82, 111, 111, 116, 80, 97, 114, 116))
+if _0x008a and _0x00ae then
+return math.floor((_0x008a._0x0041 - _0x00ae._0x0041)._0x0044)
+end
+return 0
+end
+local function _0x00af(_0x0034)
+if not _0x0034 or not _0x0034._0x0035 then return nil end
+local _0x00b0 = _0x0034._0x0035:_0x0094(string.char(72, 117, 109, 97, 110, 111, 105, 100))
+local _0x008a = _0x0034._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100, 82, 111, 111, 116, 80, 97, 114, 116))
+local _0x00b1 = _0x0034._0x0035:_0x0037(string.char(72, 101, 97, 100))
+if not _0x00b0 or not _0x008a or not _0x00b1 then return nil end
+local _0x00b2, _0x00b3 = _0x000b:_0x0076(_0x00b1._0x0041 + _0x007e._0x0022(0, 0.5, 0))
+local _0x00b4, _0x00b5 = _0x000b:_0x0076(_0x008a._0x0041 - _0x007e._0x0022(0, 2, 0))
+if not _0x00b3 or not _0x00b5 or _0x00b2._0x0077 <= 0 or _0x00b4._0x0077 <= 0 then return nil end
+local _0x00b6 = math.abs(_0x00b2._0x007b - _0x00b4._0x007b)
+local _0x00b7 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(83, 99, 97, 108, 101)] or 1.1
+local _0x00b8 = _0x00b6 * _0x00b7
+local _0x00b9 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(87, 105, 100, 116, 104, 32, 82, 97, 116, 105, 111)] or 0.6
+local _0x00ba = _0x00b8 * _0x00b9
+local _0x00bb = (_0x00b2._0x007b + _0x00b4._0x007b) / 2
+local _0x00bc = _0x0079._0x0022(_0x00b4._0x007a, _0x00bb)
+return {
+_0x00bd = _0x0079._0x0022(_0x00bc._0x007a - _0x00ba/2, _0x00bc._0x007b - _0x00b8/2),
+_0x00be = _0x0079._0x0022(_0x00bc._0x007a + _0x00ba/2, _0x00bc._0x007b - _0x00b8/2),
+_0x00bf = _0x0079._0x0022(_0x00bc._0x007a - _0x00ba/2, _0x00bc._0x007b + _0x00b8/2),
+_0x00c0 = _0x0079._0x0022(_0x00bc._0x007a + _0x00ba/2, _0x00bc._0x007b + _0x00b8/2),
+_0x00c1 = _0x00bc,
+_0x00c2 = _0x00b8,
+_0x00c3 = _0x00ba
+}
+end
+local function _0x00c4(_0x00c5, _0x00c6, _0x00c7, _0x00c8, _0x00c9)
+if not _0x00c5 then return _0x0079._0x0022(0, 0) end
+local _0x00ca = _0x0079._0x0022(0, 0)
+local _0x00cb = 0
+if _0x00c9 == string.char(110, 97, 109, 101) then
+_0x00cb = (60 / 3)
+elseif _0x00c9 == string.char(119, 101, 97, 112, 111, 110) then
+_0x00cb = 35
+elseif _0x00c9 == string.char(100, 105, 115, 116, 97, 110, 99, 101) then
+_0x00cb = 5
+end
+if _0x00c6 == string.char(84, 111, 112) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00c1._0x007a, _0x00c5._0x00bd._0x007b - _0x00cb)
+elseif _0x00c6 == string.char(66, 111, 116, 116, 111, 109) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00c1._0x007a, _0x00c5._0x00bf._0x007b + _0x00cb)
+elseif _0x00c6 == string.char(76, 101, 102, 116) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00bd._0x007a - 50, _0x00c5._0x00c1._0x007b)
+elseif _0x00c6 == string.char(82, 105, 103, 104, 116) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00be._0x007a + 50, _0x00c5._0x00c1._0x007b)
+elseif _0x00c6 == string.char(84, 111, 112, 76, 101, 102, 116) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00bd._0x007a - (90 / 3), _0x00c5._0x00bd._0x007b - _0x00cb)
+elseif _0x00c6 == string.char(84, 111, 112, 82, 105, 103, 104, 116) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00be._0x007a + (120 - 90), _0x00c5._0x00be._0x007b - _0x00cb)
+elseif _0x00c6 == string.char(66, 111, 116, 116, 111, 109, 76, 101, 102, 116) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00bf._0x007a - 30, _0x00c5._0x00bf._0x007b + _0x00cb)
+elseif _0x00c6 == string.char(66, 111, 116, 116, 111, 109, 82, 105, 103, 104, 116) then
+_0x00ca = _0x0079._0x0022(_0x00c5._0x00c0._0x007a + (60 / 2), _0x00c5._0x00c0._0x007b + _0x00cb)
+end
+return _0x0079._0x0022(_0x00ca._0x007a + _0x00c7, _0x00ca._0x007b + _0x00c8)
+end
+local function _0x00cc(_0x00cd, _0x00c5, _0x00ce)
+if not _0x00c5 then return end
+local _0x00cf = _0x00ce and _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] or _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(67, 111, 108, 111, 114)]
+local _0x00d0 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)]
+local _0x00d1 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)]
+for _0x00d2 = 1, 4 do
+_0x00cd._0x00d3[_0x00d2]._0x002e = true
+_0x00cd._0x00d3[_0x00d2]._0x0090 = _0x00cf
+_0x00cd._0x00d3[_0x00d2]._0x002f = _0x00d0
+_0x00cd._0x00d3[_0x00d2]._0x0025 = _0x00d1
+end
+_0x00cd._0x00d3[1]._0x008e, _0x00cd._0x00d3[1]._0x008f = _0x00c5._0x00bd, _0x00c5._0x00be
+_0x00cd._0x00d3[2]._0x008e, _0x00cd._0x00d3[2]._0x008f = _0x00c5._0x00be, _0x00c5._0x00c0
+_0x00cd._0x00d3[3]._0x008e, _0x00cd._0x00d3[3]._0x008f = _0x00c5._0x00c0, _0x00c5._0x00bf
+_0x00cd._0x00d3[(2 + 2)]._0x008e, _0x00cd._0x00d3[4]._0x008f = _0x00c5._0x00bf, _0x00c5._0x00bd
+if _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(70, 105, 108, 108)] then
+if not _0x00cd._0x00d4 then
+_0x00cd._0x00d4 = _0x002d._0x0022(string.char(83, 113, 117, 97, 114, 101))
+_0x00cd._0x00d4._0x00d5 = true
+_0x00cd._0x00d4._0x002f = 0
+end
+_0x00cd._0x00d4._0x002e = true
+_0x00cd._0x00d4._0x0090 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(70, 105, 108, 108, 32, 67, 111, 108, 111, 114)]
+_0x00cd._0x00d4._0x0025 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(70, 105, 108, 108, 32, 84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)]
+_0x00cd._0x00d4._0x008c = _0x0079._0x0022(_0x00c5._0x00c3, _0x00c5._0x00c2)
+_0x00cd._0x00d4._0x0041 = _0x00c5._0x00bd
+elseif _0x00cd._0x00d4 then
+_0x00cd._0x00d4._0x002e = false
+end
+end
+local function _0x00d6(_0x00cd, _0x00c5, _0x00ce)
+if not _0x00c5 then return end
+local _0x00d7 = _0x000b._0x00d8
+local _0x00d9 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 114, 97, 99, 101, 114, 115)][string.char(79, 114, 105, 103, 105, 110)]
+local _0x00da = _0x00ce and _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 114, 97, 99, 101, 114, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] or _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 114, 97, 99, 101, 114, 115)][string.char(67, 111, 108, 111, 114)]
+local _0x00db
+if _0x00d9 == string.char(66, 111, 116, 116, 111, 109) then
+_0x00db = _0x0079._0x0022(_0x00d7._0x007a/2, _0x00d7._0x007b)
+elseif _0x00d9 == string.char(84, 111, 112) then
+_0x00db = _0x0079._0x0022(_0x00d7._0x007a/2, 0)
+elseif _0x00d9 == string.char(77, 105, 100, 100, 108, 101) then
+_0x00db = _0x0079._0x0022(_0x00d7._0x007a/2, _0x00d7._0x007b/2)
+elseif _0x00d9 == string.char(77, 111, 117, 115, 101) then
+_0x00db = _0x0008:_0x0071()
+end
+if not _0x00cd._0x00dc then
+_0x00cd._0x00dc = _0x002d._0x0022(string.char(76, 105, 110, 101))
+end
+_0x00cd._0x00dc._0x008e = _0x00db
+_0x00cd._0x00dc._0x008f = _0x00c5._0x00c1
+_0x00cd._0x00dc._0x0090 = _0x00da
+_0x00cd._0x00dc._0x002f = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 114, 97, 99, 101, 114, 115)][string.char(84, 104, 105, 99, 107, 110, 101, 115, 115)]
+_0x00cd._0x00dc._0x0025 = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 114, 97, 99, 101, 114, 115)][string.char(84, 114, 97, 110, 115, 112, 97, 114, 101, 110, 99, 121)]
+_0x00cd._0x00dc._0x002e = true
+end
+local function _0x00dd(_0x0034)
+if _0x0034 == _0x000d then return end
+local _0x00cd = {
+_0x0034 = _0x0034,
+_0x00de = _0x002d._0x0022(string.char(84, 101, 120, 116)),
+_0x00df = _0x002d._0x0022(string.char(84, 101, 120, 116)),
+_0x00e0 = _0x002d._0x0022(string.char(84, 101, 120, 116)),
+_0x00d3 = {},
+}
+for _0x00d2 = 1, 4 do
+_0x00cd._0x00d3[_0x00d2] = _0x002d._0x0022(string.char(76, 105, 110, 101))
+_0x00cd._0x00d3[_0x00d2]._0x002e = false
+_0x00cd._0x00d3[_0x00d2]._0x0030 = (1026 - 26)
+end
+_0x00cd._0x00de._0x008c = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(83, 105, 122, 101)]
+_0x00cd._0x00de._0x00c1 = true
+_0x00cd._0x00de._0x00e1 = true
+_0x00cd._0x00de._0x00e2 = _0x0002._0x0003(0, 0, 0)
+_0x00cd._0x00de._0x00e3 = _0x002d._0x00e4._0x00e5
+_0x00cd._0x00de._0x002e = false
+_0x00cd._0x00de._0x0030 = 1000
+_0x00cd._0x00df._0x008c = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(83, 105, 122, 101)]
+_0x00cd._0x00df._0x00c1 = true
+_0x00cd._0x00df._0x00e1 = true
+_0x00cd._0x00df._0x00e2 = _0x0002._0x0003(0, 0, 0)
+_0x00cd._0x00df._0x00e3 = _0x002d._0x00e4._0x00e5
+_0x00cd._0x00df._0x002e = false
+_0x00cd._0x00df._0x0030 = (2000 / 2)
+_0x00cd._0x00e0._0x008c = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(83, 105, 122, 101)]
+_0x00cd._0x00e0._0x00c1 = true
+_0x00cd._0x00e0._0x00e1 = true
+_0x00cd._0x00e0._0x00e2 = _0x0002._0x0003(0, 0, 0)
+_0x00cd._0x00e0._0x00e3 = _0x002d._0x00e4._0x00e5
+_0x00cd._0x00e0._0x002e = false
+_0x00cd._0x00e0._0x0030 = 1000
+_0x0015[_0x0034._0x00e6] = _0x00cd
+end
+local function _0x00e7(_0x0034)
+local _0x00cd = _0x0015[_0x0034._0x00e6]
+if _0x00cd then
+_0x00cd._0x00de:_0x00e8()
+_0x00cd._0x00df:_0x00e8()
+_0x00cd._0x00e0:_0x00e8()
+for _0x0060, _0x00e9 in pairs(_0x00cd._0x00d3) do
+_0x00e9:_0x00e8()
+end
+if _0x00cd._0x00d4 then _0x00cd._0x00d4:_0x00e8() end
+if _0x00cd._0x00dc then _0x00cd._0x00dc:_0x00e8() end
+_0x0015[_0x0034._0x00e6] = nil
+end
+end
+local function _0x00ea()
+if not _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+for _0x0060, _0x00cd in pairs(_0x0015) do
+_0x00cd._0x00de._0x002e = false
+_0x00cd._0x00df._0x002e = false
+_0x00cd._0x00e0._0x002e = false
+for _0x0060, _0x00e9 in pairs(_0x00cd._0x00d3) do
+_0x00e9._0x002e = false
+end
+if _0x00cd._0x00d4 then _0x00cd._0x00d4._0x002e = false end
+if _0x00cd._0x00dc then _0x00cd._0x00dc._0x002e = false end
+end
+return
+end
+for _0x00eb, _0x00cd in pairs(_0x0015) do
+local _0x0034 = _0x00cd._0x0034
+if not _0x0034 or not _0x0034._0x002b then
+_0x00e7(_0x0034)
+else
+if _0x0034._0x0035 and _0x0034._0x0035._0x002b then
+local _0x00b0 = _0x0034._0x0035:_0x0094(string.char(72, 117, 109, 97, 110, 111, 105, 100))
+if not _0x00b0 or _0x00b0._0x00ec <= 0 then
+_0x00cd._0x00de._0x002e = false
+_0x00cd._0x00df._0x002e = false
+_0x00cd._0x00e0._0x002e = false
+for _0x0060, _0x00e9 in pairs(_0x00cd._0x00d3) do
+_0x00e9._0x002e = false
+end
+if _0x00cd._0x00d4 then _0x00cd._0x00d4._0x002e = false end
+if _0x00cd._0x00dc then _0x00cd._0x00dc._0x002e = false end
+else
+local _0x00ce = (_0x0011 == _0x0034)
+local _0x00c5 = _0x00af(_0x0034)
+if _0x00c5 then
+if _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(66, 111, 120, 101, 115)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+_0x00cc(_0x00cd, _0x00c5, _0x00ce)
+else
+for _0x0060, _0x00e9 in pairs(_0x00cd._0x00d3) do
+_0x00e9._0x002e = false
+end
+end
+if _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 114, 97, 99, 101, 114, 115)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+_0x00d6(_0x00cd, _0x00c5, _0x00ce)
+elseif _0x00cd._0x00dc then
+_0x00cd._0x00dc._0x002e = false
+end
+if _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+local _0x00ed = _0x00c4(
+_0x00c5,
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(80, 111, 115, 105, 116, 105, 111, 110)],
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(79, 102, 102, 115, 101, 116, 32, 88)],
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(79, 102, 102, 115, 101, 116, 32, 89)],
+string.char(110, 97, 109, 101)
+)
+_0x00cd._0x00de._0x0041 = _0x00ed
+_0x00cd._0x00de._0x00ee = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(85, 115, 101, 32, 68, 105, 115, 112, 108, 97, 121, 32, 78, 97, 109, 101)] and _0x0034._0x00ef or _0x0034._0x002a
+_0x00cd._0x00de._0x0090 = _0x00ce and _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] or _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(78, 97, 109, 101)][string.char(67, 111, 108, 111, 114)]
+_0x00cd._0x00de._0x002e = true
+else
+_0x00cd._0x00de._0x002e = false
+end
+if _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+local _0x00f0 = _0x00ad(_0x0034)
+local _0x00f1 = _0x00c4(
+_0x00c5,
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(80, 111, 115, 105, 116, 105, 111, 110)],
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(79, 102, 102, 115, 101, 116, 32, 88)],
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(79, 102, 102, 115, 101, 116, 32, 89)],
+string.char(100, 105, 115, 116, 97, 110, 99, 101)
+)
+_0x00cd._0x00df._0x0041 = _0x00f1
+_0x00cd._0x00df._0x00ee = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(70, 111, 114, 109, 97, 116)]:gsub(string.char(123, 125), tostring(_0x00f0))
+_0x00cd._0x00df._0x0090 = _0x00ce and _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] or _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(68, 105, 115, 116, 97, 110, 99, 101)][string.char(67, 111, 108, 111, 114)]
+_0x00cd._0x00df._0x002e = true
+else
+_0x00cd._0x00df._0x002e = false
+end
+if _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+local _0x00f2 = _0x00a9(_0x0034)
+local _0x00f3 = _0x00c4(
+_0x00c5,
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(80, 111, 115, 105, 116, 105, 111, 110)],
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(79, 102, 102, 115, 101, 116, 32, 88)],
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(79, 102, 102, 115, 101, 116, 32, 89)],
+string.char(119, 101, 97, 112, 111, 110)
+)
+_0x00cd._0x00e0._0x0041 = _0x00f3
+_0x00cd._0x00e0._0x00ee = _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(70, 111, 114, 109, 97, 116)]:gsub(string.char(123, 125), _0x00f2)
+_0x00cd._0x00e0._0x0090 = _0x00ce and _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 67, 111, 108, 111, 114)] or _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(87, 101, 97, 112, 111, 110, 115)][string.char(67, 111, 108, 111, 114)]
+_0x00cd._0x00e0._0x002e = true
+else
+_0x00cd._0x00e0._0x002e = false
+end
+else
+_0x00cd._0x00de._0x002e = false
+_0x00cd._0x00df._0x002e = false
+_0x00cd._0x00e0._0x002e = false
+for _0x0060, _0x00e9 in pairs(_0x00cd._0x00d3) do
+_0x00e9._0x002e = false
+end
+if _0x00cd._0x00d4 then _0x00cd._0x00d4._0x002e = false end
+if _0x00cd._0x00dc then _0x00cd._0x00dc._0x002e = false end
+end
+end
+else
+_0x00cd._0x00de._0x002e = false
+_0x00cd._0x00df._0x002e = false
+_0x00cd._0x00e0._0x002e = false
+for _0x0060, _0x00e9 in pairs(_0x00cd._0x00d3) do
+_0x00e9._0x002e = false
+end
+if _0x00cd._0x00d4 then _0x00cd._0x00d4._0x002e = false end
+if _0x00cd._0x00dc then _0x00cd._0x00dc._0x002e = false end
+end
+end
+end
+end
+for _0x0060, _0x0034 in pairs(_0x0005:_0x0072()) do
+if _0x0034 ~= _0x000d then
+_0x00dd(_0x0034)
+end
+end
+_0x0005._0x00f5:_0x00f6(function(_0x0034)
+if _0x0034 ~= _0x000d then
+_0x00dd(_0x0034)
+end
+end)
+_0x0005._0x00f7:_0x00f6(function(_0x0034)
+if _0x0011 == _0x0034 then
+_0x0011 = nil
+_0x0012 = nil
+_0x0013 = false
+end
+_0x00e7(_0x0034)
+end)
+local function _0x00fb(_0x0034)
+if _0x0034 ~= _0x0011 then return end
+_0x0034._0x00fc:_0x00f6(function(_0x003e)
+if _0x0034 == _0x0011 then
+_0x00fd._0x00fe(0.5)
+_0x0069()
+end
+end)
+end
+local function _0x0101(_0x003d)
+if not _0x003d or _0x001d[_0x003d] then return end
+_0x001d[_0x003d] = _0x003d._0x008c
+end
+local function _0x0102(_0x003d)
+if _0x003d and _0x001d[_0x003d] then
+pcall(function()
+_0x003d._0x008c = _0x001d[_0x003d]
+end)
+end
+end
+local function _0x0103(_0x003d, _0x0104)
+if not _0x003d then return end
+_0x0101(_0x003d)
+_0x003d._0x008c = _0x007e._0x0022(_0x0104, _0x0104, _0x0104)
+end
+local function _0x0105()
+for _0x003d, _0x0106 in pairs(_0x001d) do
+if _0x003d and _0x003d._0x002b then
+pcall(function()
+_0x003d._0x008c = _0x0106
+end)
+else
+_0x001d[_0x003d] = nil
+end
+end
+end
+local function _0x0107()
+if not _0x0004[string.char(72, 105, 116, 98, 111, 120, 32, 69, 120, 112, 97, 110, 100, 101, 114)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+_0x0105()
+return
+end
+local _0x0108 = _0x0004[string.char(72, 105, 116, 98, 111, 120, 32, 69, 120, 112, 97, 110, 100, 101, 114)][string.char(83, 105, 122, 101)]
+_0x0105()
+if _0x0013 and _0x0011 and _0x0011._0x0035 then
+local _0x0109 = _0x0011._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100, 82, 111, 111, 116, 80, 97, 114, 116))
+if _0x0109 then
+_0x0103(_0x0109, _0x0108)
+end
+end
+end
+_0x0009._0x010c:_0x00f6(function()
+if _0x003b() and _0x0013 then
+_0x0013 = false
+_0x002c._0x002e = false
+end
+if _0x0011 then
+if _0x0011._0x0035 then
+if not _0x0012 or not _0x0012._0x002b then
+_0x0069()
+end
+end
+end
+_0x0091()
+if _0x0016 and _0x0004[string.char(83, 112, 101, 101, 100)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+local _0x00b0 = _0x000d._0x0035 and _0x000d._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100))
+if _0x00b0 then
+_0x00b0._0x010d = _0x0017 * _0x0004[string.char(83, 112, 101, 101, 100)][string.char(77, 117, 108, 116, 105, 112, 108, 105, 101, 114)]
+end
+end
+_0x0107()
+_0x0089()
+_0x008d()
+_0x00ea()
+if _0x0004[string.char(67, 97, 109, 101, 114, 97, 32, 76, 111, 99, 107)][string.char(69, 110, 97, 98, 108, 101, 100)] then
+_0x0082()
+end
+end)
+_0x0008._0x0110:_0x00f6(function(_0x0111, _0x0112)
+if _0x0112 then return end
+if _0x0111._0x0113 == _0x0028._0x0113[_0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 76, 111, 99, 107)][string.char(75, 101, 121)]] then
+local _0x0114 = _0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 76, 111, 99, 107)][string.char(77, 111, 100, 101)]
+if _0x0114 == string.char(84, 111, 103, 103, 108, 101) then
+if _0x0004[string.char(83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 65, 105, 109)] then
+if _0x0013 then
+_0x0013 = false
+_0x0011 = nil
+_0x0012 = nil
+_0x002c._0x002e = false
+else
+local _0x0115 = _0x006b()
+if _0x0115 then
+_0x0011 = _0x0115
+_0x00fb(_0x0115)
+_0x0013 = true
+end
+end
+else
+_0x0013 = not _0x0013
+if not _0x0013 then
+_0x002c._0x002e = false
+end
+end
+elseif _0x0114 == string.char(72, 111, 108, 100) then
+if _0x0004[string.char(83, 101, 116, 116, 105, 110, 103, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 65, 105, 109)] then
+local _0x0115 = _0x006b()
+if _0x0115 then
+_0x0011 = _0x0115
+_0x00fb(_0x0115)
+_0x0013 = true
+end
+else
+_0x0013 = true
+end
+end
+end
+if _0x0111._0x0113 == _0x0028._0x0113[_0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)][string.char(75, 101, 121)]] then
+local _0x0114 = _0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)][string.char(77, 111, 100, 101)]
+if _0x0114 == string.char(84, 111, 103, 103, 108, 101) then
+_0x0014 = not _0x0014
+elseif _0x0114 == string.char(72, 111, 108, 100) then
+_0x0014 = true
+end
+end
+if _0x0111._0x0113 == _0x0028._0x0113[_0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(83, 112, 101, 101, 100)]] then
+_0x0016 = not _0x0016
+if not _0x0016 then
+local _0x00b0 = _0x000d._0x0035 and _0x000d._0x0035:_0x0037(string.char(72, 117, 109, 97, 110, 111, 105, 100))
+if _0x00b0 then
+_0x00b0._0x010d = _0x0017
+end
+end
+end
+if _0x0111._0x0113 == _0x0028._0x0113[_0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(69, 83, 80)]] then
+_0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(69, 110, 97, 98, 108, 101, 100)] = not _0x0004[string.char(69, 83, 80, 32, 83, 101, 116, 116, 105, 110, 103, 115)][string.char(69, 110, 97, 98, 108, 101, 100)]
+end
+end)
+_0x0008._0x0116:_0x00f6(function(_0x0111, _0x0112)
+if _0x0112 then return end
+if _0x0111._0x0113 == _0x0028._0x0113[_0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 76, 111, 99, 107)][string.char(75, 101, 121)]] then
+local _0x0114 = _0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 97, 114, 103, 101, 116, 32, 76, 111, 99, 107)][string.char(77, 111, 100, 101)]
+if _0x0114 == string.char(72, 111, 108, 100) then
+_0x0013 = false
+_0x0011 = nil
+_0x0012 = nil
+_0x002c._0x002e = false
+end
+end
+if _0x0111._0x0113 == _0x0028._0x0113[_0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)][string.char(75, 101, 121)]] then
+local _0x0114 = _0x0004[string.char(75, 101, 121, 98, 105, 110, 100, 115)][string.char(84, 114, 105, 103, 103, 101, 114, 32, 66, 111, 116)][string.char(77, 111, 100, 101)]
+if _0x0114 == string.char(72, 111, 108, 100) then
+_0x0014 = false
+end
+end
+end)
+local _0x0119 = _0x0006:_0x0007(string.char(86, 105, 114, 116, 117, 97, 108, 85, 115, 101, 114))
+_0x000d._0x011a:_0x00f6(function()
+_0x0119:_0x011b()
+_0x0119:_0x011c(_0x0079._0x0022())
+end)
